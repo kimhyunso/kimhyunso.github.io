@@ -17,24 +17,25 @@
 <script>
 
 function createClassName(){
-const ulList = document.querySelectorAll('ul');
-ulList.forEach((element)=>{
-	
-	if(element.id == 'HTMLCollectionUl'){
-		element.childNodes.forEach((element)=>{
-			element.className = 'red';
-		});
-	}else{
-		element.childNodes.forEach((element)=>{
-			element.className = 'blue';
-		});
+	const ulList = document.querySelectorAll('ul');
+	ulList.forEach((element)=>{
 		
-	}
-});
+		if(element.id == 'HTMLCollectionUl'){
+			element.childNodes.forEach((element)=>{
+				element.className = 'red';
+			});
+		}else{
+			element.childNodes.forEach((element)=>{
+				element.className = 'blue';
+			});
+			
+		}
+	});
 }
 
 </script>
 <body onload="createClassName();">
+	<h1>HTMLCollection과 NodeList의 차이점</h1>
 	<h1>HTMLCollection</h1>
 	<ul id="HTMLCollectionUl">
 		<li>고양이</li>
@@ -61,12 +62,19 @@ ulList.forEach((element)=>{
 	<span id="NodeListSpan"></span>
 	</p>
 
+	<button id="locationBtn">다음</button>
 
 <script>
 const buttones = document.querySelectorAll('button');
 buttones.forEach((element)=>{
 	element.addEventListener('click', changeToColor);
 });
+locationBtn.addEventListener('click', locationToMove);
+
+function locationToMove(){
+	location.href="./variable.html";
+}
+
 
 
 function changeToColor(e){
