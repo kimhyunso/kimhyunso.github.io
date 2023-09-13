@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<style>
+    .red {
+     	color: red;
+    }
+    .blue{
+	color:blue;
+    }
+</style>
+</head>
+<body>
+    <form id="myForm" onsubmit="return false">
+        <ul id="fruits">
+      	    	<li class="red">Apple</li>
+	    	<li class="red">Banana</li>
+ 	    	<li class="red">Orange</li>
+    	</ul>
+
+	<ul class="list">
+		<li>Lorem ipsum dolor sit amet.</li>
+    		<li>Lorem ior sit amet.</li>
+    		<li>Lorem ipsum </li>
+	</ul>
+      <input class="border-0" type="text" placeholder="파일을 선택해주세요" readonly>
+      <label class="btn btn-primary">
+	파일선택
+	<input class="d-none" type="file" multiple>
+      </label>
+
+      <input type="checkbox" id="All" value="All"/>전체
+      <input type="checkbox" value="Travel" />여행
+      <input type="checkbox" value="Janggi" />장기
+      <input type="checkbox" value="Baduk" />바둑
+      <input type="checkbox" value="Reading" />독서
+      <input type="checkbox" value="Fishing" />낚시
+      <table id="table">
+	<tr>
+		<td>이름</td>
+		<td>나이</td>
+	</tr>
+	<tr>
+		<td>kim</td>
+		<td>20</td>
+	</tr>
+	
+	
+      </table>
+      
+      <select>
+          <option name="value">1</option>
+          <option name="value">2</option>
+	  <option name="value">3</option>
+          <option name="value">4</option>
+ 	  <option name="value">5</option>
+          <option name="value">6</option>
+      </select>
+      <button id="btn">click</button>
+      <button>click</button>
+    </form>
+<script>
+   const checkboxes = document.querySelectorAll("input[type='checkbox']");
+   const checkboxAll = document.getElementById("All");
+   const fileInput = document.querySelectorAll("input[type='file']");
+
+   fileInput.forEach((element)=>{
+   	element.addEventListener("change", fileController);
+   });
+   
+   checkboxes.forEach((element) => {
+      element.addEventListener("click", checkboxContoller);
+   });
+
+   function checkboxContoller(e){
+      const checkedList = document.querySelectorAll("input[type='checkbox']:checked");
+      
+      if (e.target == checkboxAll){
+         checkboxes.forEach((element)=>{
+            element.checked = e.target.checked;
+            
+         });
+      }
+
+      if(checkboxes.length-1 == checkedList.length && e.target.checked){
+         checkboxAll.checked = true;
+      }else if(checkboxes.length != checkedList.length && !e.target.checked){
+         checkboxAll.checked = false;
+      }
+   }
+   document.querySelector('#btn').addEventListener('click', (e)=>{
+   	
+   	console.log('콜백함수에 의해 실행된 클릭이벤트');
+   });
+
+   function fileController(e){
+	if (e.target.files.length > 1){
+        	fileInput[0].parentElement.previousElementSibling.value = e.target.value.split('\\')[2] + " 외 " + e.target.files.length + "개";
+		return;
+        }
+	fileInput[0].parentElement.previousElementSibling.value = e.target.value.split('\\')[2];
+   }
+</script>
+</body>
+</html>
