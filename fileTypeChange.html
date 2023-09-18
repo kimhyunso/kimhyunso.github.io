@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+<style>
+</style>
+</head>
+<body>
+<input type="file" onchange="fileCheck(this.value, event);" accept="video/mp4, video/avi">
+	
+	
+<script>
+
+function fileCheck(fileValue, e){
+	var fileDot = fileValue.lastIndexOf(".");
+	var fileType = fileValue.substring(fileDot+1, fileValue.length).toLowerCase();
+	if (!(fileType == 'mp4' || fileType == 'avi')){
+		e.target.value = "";
+		alert('동영상을 다시 선택해주세요.');
+	}
+	
+
+ }
+</script>
+</body>
+</html>
