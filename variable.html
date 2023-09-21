@@ -40,6 +40,7 @@
     <p id="functionResult"></p>
 
     <button onclick="prev();">이전</button>
+    <button onclick="next();">다음</button>
 <script>
 const hoistingButton = document.querySelectorAll("button[name='hoisting']");
 const againButtons = document.querySelectorAll("button[name='again']");
@@ -127,6 +128,10 @@ const func = function(){
 
 function prev(){
     window.history.back();
+}
+
+function next(){
+    location.href = "./seletor.html";
 }
 
 

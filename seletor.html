@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+	.red{
+		color:red;
+	}
+	.blue{
+		color:blue;
+	}
+    </style>
+</head>
+<body>
+    <h1>Javascript 선택자</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>종류</th>
+                <th>설명</th>
+                <th>타입</th>
+                <th>테스트</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>document.getElementById()</td>
+                <td>한가지 요소를 선택한다.</td>
+                <td>[object HTMLUListElement]</td>
+                <td>
+                    <button>클릭</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>document.getElementsByClassName()</td>
+                <td>클래스 명이 같은 요소들을 선택한다.</td>
+                <td>HTMLCollection</td>
+                <td>
+                    <button>클릭</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>document.getElementsByName()</td>
+                <td>속성(attribute) name이 같은 요소들을 선택한다.</td>
+                <td>NodeList</td>
+                <td>
+                    <button>클릭</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>document.getElementsByTagName()</td>
+                <td>태그가 같은 요소들을 선택한다.</td>
+                <td>HTMLCollection</td>
+                <td>
+                    <button>클릭</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>document.querySelector()</td>
+                <td>어느것이든 한가지 요소를 선택한다.</td>
+                <td>[object HTMLUListElement]</td>
+                <td>
+                    <button>클릭</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>document.querySelectorAll()</td>
+                <td>어느것이든 여러가지 요소들을 선택한다.</td>
+                <td>NodeList</td>
+                <td>
+                    <button>클릭</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Target</h2>
+    <ul id="targetUl" class="targetUl" name="targetUl">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+
+
+    <p id="result"></p>
+    <button onclick="prev();">이전</button>
+<script>
+function prev(){
+    window.history.back();
+}
+
+function elementById(){
+    result.innerHTML = "";
+    const targetUl = document.getElementById('targetUl');
+    result.append(targetUl.toString());
+}
+
+function querySelet(){
+    result.innerHTML = "";
+    const targetUl = document.querySelectorAll('#targetUl');
+    result.append(targetUl.toString());
+}
+
+
+
+</script>
+</body>
+</html>
