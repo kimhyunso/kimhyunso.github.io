@@ -28,7 +28,20 @@ input:focus { outline: none; }
 		<tbody>
 		</tbody>
 	<table>
+		
+	<button onclick="prev();">이전</button>
+    <button onclick="next();">다음</button>
 <script>
+
+
+function prev(){
+    window.history.back();
+}
+
+function next(){
+	location.href="fileTypeChange.html";
+}
+
    const imges = document.querySelectorAll('img');
    imges.forEach((element)=>{
 	element.addEventListener('click', imgClick);

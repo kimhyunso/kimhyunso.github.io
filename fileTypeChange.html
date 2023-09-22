@@ -7,9 +7,22 @@
 </head>
 <body>
 <input type="file" onchange="fileCheck(this.value, event);" accept="video/mp4, video/avi">
-	
-	
+
+<div>
+	<button onclick="prev();">이전</button>
+	<button onclick="next();">다음</button>
+</div>
+
 <script>
+
+	
+function prev(){
+    window.history.back();
+}
+
+function next(){
+	location.href="javascriptTest.html";
+}
 
 function fileCheck(fileValue, e){
 	var fileDot = fileValue.lastIndexOf(".");

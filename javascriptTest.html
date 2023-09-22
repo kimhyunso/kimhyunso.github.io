@@ -59,7 +59,15 @@
       <button id="btn">click</button>
       <button>click</button>
     </form>
+
+
+    <button onclick="prev();">이전</button>
+
 <script>
+
+function prev(){
+    window.history.back();
+}
    const checkboxes = document.querySelectorAll("input[type='checkbox']");
    const checkboxAll = document.getElementById("All");
    const fileInput = document.querySelectorAll("input[type='file']");
