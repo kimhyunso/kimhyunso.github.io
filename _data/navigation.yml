@@ -14,10 +14,16 @@ sidebar-category:
 - title: "언어"
   children:
     - title: "자바"
-      url: "/blog"
+      url: "/java"
     - title: "파이썬"
       url:  "/python"
-- title: "네트워크"
+- title: "네트워크 및 자료구조"
   children:
     - title: "네트워크"
       url: "/network"
+    - title: "자료구조"
+      url: "/algorithm"
+- title: "데이터베이스"
+  children:
+    - title: "데이터베이스"
+      url: "/database"
