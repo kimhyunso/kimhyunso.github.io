@@ -31,4 +31,8 @@ sidebar-category:
   children:
     - title: "데이터베이스"
       url: "/database"
+- title: "단축키모음"
+  children:
+    - title: "인텔리제이"
+      url: "/intellij"
 
