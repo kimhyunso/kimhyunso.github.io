@@ -112,9 +112,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : # "Your Name"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "안녕하세요"
+  bio              : "안녕하세요 서로 도와가며 배워용!"
   location         : # ""
   email            : "gustn9515@naver.com"
   links:
