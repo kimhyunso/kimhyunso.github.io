@@ -325,6 +325,8 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
+      sidebar:                  # 추가한 부분
+        nav: "sidebar-category" # 추가한 부분
       # share: true
       # related: true
 # _config.yml (defaults)
