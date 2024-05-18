@@ -1,5 +1,9 @@
 # main links
 main:
+  - title: "HOME"
+    url: "https://kimhyunso.github.io/"
+  - title: "categories"
+    url: ""
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
