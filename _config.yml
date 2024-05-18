@@ -320,3 +320,8 @@ defaults:
       comments: true
       # share: true
       # related: true
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "your-disqus-shortname"
+
