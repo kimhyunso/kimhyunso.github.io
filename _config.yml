@@ -306,6 +306,13 @@ compress_html:
   ignore:
     envs: development
 
+comments:
+  provider    : "disqus"                                # comment 처리 사이트 명칭 기재
+              # false (default), "disqus", "discourse", "facebook"
+              # "staticman", "staticman_v2", "utterances", "custom"
+  disqus:
+    shortname : "kimhyunso.disqus.com"                    # disqus의 shortname 기재
+
 
 # Defaults
 defaults:
@@ -321,6 +328,7 @@ defaults:
       # share: true
       # related: true
 # _config.yml (defaults)
+
 
 
 
