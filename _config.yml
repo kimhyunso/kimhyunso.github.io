@@ -311,7 +311,7 @@ comments:
               # false (default), "disqus", "discourse", "facebook"
               # "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname : "kimhyunso.disqus.com"                    # disqus의 shortname 기재
+    shortname : "kimhyunso-github-io"                    # disqus의 shortname 기재
 
 
 # Defaults
