@@ -20,7 +20,9 @@ sidebar-category:
     - title: "자바"
       url: "/java"
     - title: "파이썬"
-      url:  "/python"
+      url: "/python"
+    - title: "자바스크립트"
+      url: "javascript"
 - title: "네트워크 및 자료구조"
   children:
     - title: "네트워크"
