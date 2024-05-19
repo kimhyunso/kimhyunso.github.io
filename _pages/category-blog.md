@@ -1,7 +1,7 @@
 ---
 title: "blog"
 layout: archive
-permalink: /network, /java, /python
+permalink: "/network" "/java" "/python"
 ---
 
 
