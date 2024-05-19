@@ -2,6 +2,7 @@
 main:
   - title: "HOME"
     url: "https://kimhyunso.github.io/"
+    category: "home"
   - title: "CATEGORIES"
     url: ""
   # - title: "Quick-Start Guide"
