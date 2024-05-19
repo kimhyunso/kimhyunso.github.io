@@ -19,22 +19,29 @@ sidebar-category:
   children:
     - title: "자바"
       url: "categories/java"
+      category: "java"
     - title: "파이썬"
       url: "categories/python"
+      category: "python"
     - title: "자바스크립트"
       url: "categories/javascript"
+      category: "javascript"
 - title: "네트워크 및 자료구조"
   children:
     - title: "네트워크"
       url: "categories/network"
+      category: "network"
     - title: "자료구조"
       url: "categories/algorithm"
+      category: "algorithm"
 - title: "데이터베이스"
   children:
     - title: "데이터베이스"
       url: "categories/database"
+      category: "database"
 - title: "단축키모음"
   children:
     - title: "인텔리제이"
       url: "categories/intellij"
+      category: "intellij"
 
