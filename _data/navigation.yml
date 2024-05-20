@@ -4,7 +4,7 @@ main:
     url: "https://kimhyunso.github.io/"
     category: "home"
   - title: "CATEGORIES"
-    url: ""
+    url: "categories/categories"
     # category: "categories"
 sidebar-category:
 - title: "언어"
