@@ -1,6 +1,5 @@
 ---
-title: "네트워크"
-layout: archive
+title: "네트워크 모음"
 permalink: categories/network
 author_profile: true
 ---
