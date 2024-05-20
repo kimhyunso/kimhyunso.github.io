@@ -3,6 +3,8 @@ title: "자바모음"
 layout: single
 permalink: categories/java
 author_profile: true
+sidebar:
+  nav: "docs"
 ---
 
  {% assign posts = site.categories.java %}
