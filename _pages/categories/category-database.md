@@ -1,5 +1,6 @@
 ---
 title: "데이터베이스 모음"
+layout: single
 permalink: categories/database
 author_profile: true
 ---
