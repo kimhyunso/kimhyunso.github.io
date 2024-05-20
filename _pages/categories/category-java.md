@@ -1,5 +1,6 @@
 ---
 title: "자바모음"
+layout: single
 permalink: categories/java
 author_profile: true
 ---
