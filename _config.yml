@@ -326,7 +326,7 @@ defaults:
       read_time: true
       comments: true
       sidebar:                  
-        nav: "docs"
+        nav: "main"
       # share: true
       # related: true
 # _config.yml (defaults)
