@@ -14,6 +14,36 @@ tags:
 
 일부 적합하지 않은 곳은 자바가 아닌 언어를 사용 할 수 있다.
 
+
+# 선언형과 명령형 프로그래밍
+## 선언형 (Declarative)
+- WHAT
+```java
+public String replaceSpace(String name){
+    return name.replaceAll(" ", "");
+}
+
+String result = replaceSpace("Hello World !!"); // HelloWorld!!
+```
+
+## 명령형 (Imperative)
+- 절차지형적
+- HOW
+```java
+public String replaceSpace(String name){
+    String result = "";
+    for (int i = 0; i < name.length(); i++){
+        char word = name.charAt(i);
+        if (!(word == ' ')){
+            result += word;
+        }
+    }
+    return result;
+}
+String result = replaceSpace("Hello World !!"); // HelloWorld!!
+```
+
+
 # 순수함수와 불순함수
 순수함수와 불순함수라고 하여 순수함수가 기능적으로 더 우수하다는 뜻은 아님
 ## 순수함수
