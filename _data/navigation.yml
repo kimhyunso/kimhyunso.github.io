@@ -39,8 +39,8 @@ sidebar-category:
 - title: "프로그래밍기법"
   childrent:
     - title: "함수형프로그래밍"
-        url: "categories/functionalprogram"
-        category: "functionalprogram"
+        url: "categories/functional"
+        category: "functional"
     - title: "TDD (Test-Driven Development)"
         url: "categories/tdd"
         category: "tdd"
