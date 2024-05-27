@@ -3,10 +3,6 @@ title:  "함수형 자바"
 layout: single
 categories:
     - functional
-tags:
-    - o REILLY
-    - 함수형 프로그래밍 With 자바
-    - A Functional Approach to Java
 ---
 
 ## 람다 문법

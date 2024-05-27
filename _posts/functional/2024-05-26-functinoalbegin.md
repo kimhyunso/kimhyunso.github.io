@@ -3,10 +3,6 @@ title:  "함수형 기초"
 layout: single
 categories:
     - functional
-tags:
-    - o REILLY
-    - 함수형 프로그래밍 With 자바
-    - A Functional Approach to Java
 ---
 
 # 들어가기 앞서
