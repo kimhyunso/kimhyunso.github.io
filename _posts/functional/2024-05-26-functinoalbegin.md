@@ -3,8 +3,6 @@ title:  "함수형 기초"
 layout: single
 categories:
     - functional
-sidebar:
-  nav: "docs"
 ---
 
 # 들어가기 앞서
