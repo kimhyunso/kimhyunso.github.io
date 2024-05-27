@@ -325,10 +325,11 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
+      related: true
       sidebar:                  
         nav: "main"
       # share: true
-      # related: true
+      
 # _config.yml (defaults)
 
 

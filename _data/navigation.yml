@@ -41,7 +41,7 @@ sidebar-category:
         - title: "함수형프로그래밍"
             url: "categories/functional"
             category: "functional"
-        - title: "TDD (Test-Driven Development)"
+        - title: "TDD"
             url: "categories/tdd"
             category: "tdd"
 
