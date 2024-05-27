@@ -1,8 +1,8 @@
 ---
 title:  "함수형 기초"
 layout: single
-categories:
-    - functional
+# categories:
+#     - functional
 ---
 
 # 들어가기 앞서

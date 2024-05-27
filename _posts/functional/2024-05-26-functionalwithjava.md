@@ -1,8 +1,8 @@
 ---
 title:  "함수형 자바"
 layout: single
-categories:
-    - functional
+# categories:
+#     - functional
 ---
 
 ## 람다 문법
