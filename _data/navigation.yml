@@ -4,7 +4,7 @@ main:
     url: "https://kimhyunso.github.io/"
     - title: "CATEGORIES"
     url: "categories/categories"
-sidebar-category:
+sidebarCategory:
     - title: "언어"
     children:
         - title: "자바"

@@ -327,7 +327,7 @@ defaults:
       comments: true
       related: true
       sidebar:                  
-        nav: "main"
+        nav: "sidebarCategory"
       # share: true
       
 # _config.yml (defaults)
