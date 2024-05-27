@@ -3,6 +3,9 @@ title:  "함수형 기초"
 layout: single
 categories:
     - functional
+tags:
+    - o'reilly
+    - 함수형 프로그래밍 
 ---
 
 # 들어가기 앞서

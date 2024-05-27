@@ -3,6 +3,9 @@ title:  "함수형 자바"
 layout: single
 categories:
     - functional
+tags:
+    - o'reilly
+    - 함수형 프로그래밍
 ---
 
 ## 람다 문법
