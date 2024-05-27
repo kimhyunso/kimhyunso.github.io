@@ -1,6 +1,6 @@
 # main links
 main:
-    title: "HOME"
+    - title: "HOME"
     url: "https://kimhyunso.github.io"
     title: "CATEGORIES"
     url: "categories/categories"
