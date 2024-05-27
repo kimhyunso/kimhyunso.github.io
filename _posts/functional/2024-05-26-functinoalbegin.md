@@ -126,6 +126,8 @@ const arr2 = arr1.map(function(item) {
 console.log(arr2); // 2, 4, 6
 ```
 
+# 테스트
+
 
 
 
