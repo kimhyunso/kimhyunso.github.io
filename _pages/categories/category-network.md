@@ -3,8 +3,6 @@ title: "네트워크 모음"
 layout: single
 permalink: categories/network
 author_profile: true
-sidebar:
-  nav: "docs"
 ---
 
  {% assign posts = site.categories.network %}

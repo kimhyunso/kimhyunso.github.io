@@ -1,10 +1,8 @@
 ---
-title: "자바스크립트모음"
+title: "자바스크립트 모음"
 layout: single
 permalink: categories/javascript
 author_profile: true
-sidebar:
-  nav: "docs"
 ---
 
  {% assign posts = site.categories.javascript %}
