@@ -27,20 +27,22 @@ sidebar-category:
             url: "categories/algorithm"
             category: "algorithm"
 - title: "데이터베이스"
-  children:
-    - title: "데이터베이스"
-      url: "categories/database"
-      category: "database"
+    children:
+        - title: "데이터베이스"
+            url: "categories/database"
+            category: "database"
 - title: "단축키모음"
-  children:
-    - title: "인텔리제이"
-      url: "categories/intellij"
-      category: "intellij"
+    children:
+        - title: "인텔리제이"
+            url: "categories/intellij"
+            category: "intellij"
 - title: "프로그래밍기법"
-  children:
-    - title: "함수형프로그래밍"
-      url: "categories/functional"
-      category: "functional"
-    - title: "TDD (Test-Driven Development)"
-      url: "categories/tdd"
-      category: "tdd"
+    children:
+        - title: "함수형프로그래밍"
+            url: "categories/functional"
+            category: "functional"
+        - title: "TDD (Test-Driven Development)"
+            url: "categories/tdd"
+            category: "tdd"
+
+
