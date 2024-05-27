@@ -3,6 +3,8 @@ title: "TDD 모음"
 layout: single
 permalink: categories/tdd
 author_profile: true
+sidebar:                  
+    nav: "sidebar-category"
 ---
 
 {% assign posts = site.categories.tdd %}

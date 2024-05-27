@@ -3,6 +3,8 @@ title: "함수형 프로그래밍 모음"
 layout: single
 permalink: categories/functional
 author_profile: true
+sidebar:                  
+    nav: "sidebar-category"
 ---
 
 {% assign posts = site.categories.functional %}

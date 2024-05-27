@@ -3,6 +3,8 @@ title: "파이썬 모음"
 layout: single
 permalink: categories/python
 author_profile: true
+sidebar:                  
+    nav: "sidebar-category"
 ---
 
  {% assign posts = site.categories.python %}

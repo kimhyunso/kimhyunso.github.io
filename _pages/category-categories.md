@@ -3,6 +3,8 @@ title: "카테고리 모음"
 layout: categories
 permalink: categories/categories
 author_profile: true
+sidebar:                  
+    nav: "sidebar-category"
 ---
 
 {% assign posts = site.categories.categories %}
