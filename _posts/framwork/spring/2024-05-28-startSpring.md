@@ -36,3 +36,13 @@ Groupid : com.naver
 
 Artifact와 비슷하여 같은 이름을 쓰는 경우가 많음
 
+
+# 스프링 컨테이너
+
+
+
+# 의존성 주입 (DI: Depandency Injection)
+
+
+
+
