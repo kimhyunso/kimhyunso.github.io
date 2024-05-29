@@ -96,14 +96,14 @@ public class Person{
         return new Person(age);
     }
 
-    public Person setNameAndAge(int age, String name){
+    public Person setPerson(int age, String name){
         return new Person(age, name);
     }
 }
 ```
 
 ## 일급함수
-함수를 다른 인수로 전달 및 반환값으로 사용할 수 있으며 변수에 할당할 수 있는 함수
+**함수를 다른 인수로 전달 및 반환값으로 사용**할 수 있으며 **변수에 할당할 수 있는 함수**
 
 ```java
 Function<String, String> sayHello = input -> input;
@@ -117,9 +117,8 @@ greeting.compose(sayHello)
 ```
 
 ## 고차 함수
-일급 함수의 틍성을 바탕으로 함수를 인수로 받거나, 반환하거나 또는 두가지 모드 가능하게 해야함
+일급 함수의 특성을 바탕으로 **함수를 인수로 받거나**, **반환하거나 또는 두가지 모드 가능**하게 해야함
 ```java
 // BinaryOperator를 사용하여 두 수를 더하는 일급함수를 정의
 BinaryOperator<BinaryOperator<Integer>> higherOrderFunction = (operation) -> (a, b) -> operation.apply(a, b);
-
 ```
