@@ -15,24 +15,63 @@ tags:
 4. `Predicate<T>`
 
 ## `Funcional<T, R>`
-하나의 입력값에 대해 하나를 반환함
-- T : 입력값
-- R : 반환값
+하나의 매개변수에 대해 하나의 결과를 반환
+> T : 매개변수
+>
+> R : 반환값
 ```java
 @FunctionalInterface
 public interface Function<T, R>{
     R apply(T t);
     // ...
 }
+Function<Integer, Integer> result = x -> x * 2;
+
+result.apply(10); // 20
 ```
 
 ## `Consumer<T>`
-입력을 해도 반환하지 않음
-- T : 입력값
+매개변수는 있으며 반환은 `Void`
+> T : 매개변수
 ```java
 @FunctionalInterface
 public interface Consumer<T>{
     void accept(T t);
     // ...
 }
+
+Consumer<String> result = name -> System.out.println(name);
+
+result.accept("hongildong"); // hongildong
+```
+
+## `Supplier<T>`
+반환값은 있고 매개변수가 없음
+> T : 반환값
+```java
+@FunctionalInterface
+public interface Supplier<T>{
+    T get();
+    // ...
+}
+
+Supplier<String> result = () -> "Hello World!";
+
+result.get(); // Hello World!
+```
+
+## `Predicate<T>`
+> T : 매개변수
+>
+> `boolean` : 반환값
+```java
+@FunctionalInterface
+public interface Predicate<T>{
+    boolean test(T t);
+    // ...
+}
+
+Predicate<Integer> result = x -> x > 10;
+
+result.test(20); // true
 ```
