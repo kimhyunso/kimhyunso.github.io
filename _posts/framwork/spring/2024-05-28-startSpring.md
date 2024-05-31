@@ -23,13 +23,13 @@ tags:
 > 하위 Groupid : com.naver.map
 >
 > 하위 Groupid : com.naver.web
+
 ### Artifact
 > 프로젝트의 이름 사용
 >
 > 이 이름으로 컴파일된  Jar 생성
 >
 > 소문자로만 작성/특수문자 사용 금지
-
 
 ### Name
 > 물리적으로 생성되는 프로젝트명
@@ -40,9 +40,12 @@ tags:
 
 # 의존성 주입 (DI: Depandency Injection)
 ## `@Autowired`
-1. 필드
-2. 생성자 : 권장
-3. setter
+> 필드
+>
+> 생성자 : 권장
+> 
+> setter
+
 ```java
 @Controller
 public class Controller{
@@ -79,7 +82,7 @@ public class Controller{
 - V : View
 - C : Controller
 ## Model
-repository 및 service
+데이터를 저장하는 공간
 
 ## View
 페이지를 보여주는 공간 (html, json 등)
@@ -93,7 +96,25 @@ RestAPI를 사용할 수 있도록 도와주는 어노테이션
 
 `@Controller`와의 차이점 : `@Controller` 어노테이션은 라우터 역활을 하는 방면, `@RestContoller` 어노테이션은 JSON 형태로 데이터를 반환함
 
-## `@Gett`
+## `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`
+GET, POST, PUT, DELETE
+
+## `@RequestBody`
+PUT, POST 는 header와 body부분으로 분리되어 데이터를 전달하기 때문에
+
+요청한 body 부분을 받아올 수 있음
+
+![스크린샷 2024-05-31 오전 9 00 35](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/ce7d2768-8bbf-4bdb-983b-aa103b48b5d6)
+{: .align-center}
+
+## `@ResponseEntity`
+요청한 내용을 비지니스 로직을 통해 가공 후 객체로 반환해주는 작업
+
+
+![스크린샷 2024-05-31 오전 9 32 22](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/2b4c70a2-b675-4da3-a9f2-278e6a9ffb14)
+{: .align-center}
+
+
 ```java
 @RequestMapping("/api")
 @RestController
