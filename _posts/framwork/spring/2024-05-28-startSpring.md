@@ -91,8 +91,6 @@ public class Controller{
 API 호출하여 비지니스 로직을 처리할 수 있게 도와주는 역활 및 라우터 역활
 
 
-
-
 ## `@RestController`
 RestAPI를 사용할 수 있도록 도와주는 어노테이션
 
@@ -116,15 +114,13 @@ PUT, POST 는 header와 body부분으로 분리되어 데이터를 전달하기 
 ![스크린샷 2024-05-31 오전 9 32 22](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/2b4c70a2-b675-4da3-a9f2-278e6a9ffb14)
 {: .align-center}
 
-## 동작형태
-![스크린샷 2024-05-31 오전 9 38 48](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/08570318-1f8f-4a81-a724-e91dc36dec84)
-{: .align-center}
-
+### `@RestController`
 ```java
 @RequestMapping("/api")
 @RestController
 @RequiredArgsConstructor
-public class RestAPIController{
+public class BlogAPIController{
+
     private final BlogService blogService;
 
     @GetMapping(values = "/articles/{id}")
@@ -171,8 +167,53 @@ public class RestAPIController{
     }
 }
 ```
+### `@Controller`
+`Model` : html에 데이터를 전달해주기 위한 객체
 
+`String`으로 리턴시, 물리적 위치에서 해당 파일을 찾아 보여준다.
 
+```java
+@RequiredArgsConstructor
+@Controller
+public class BlogViewController {
+
+    private final BlogService blogService;
+
+    @GetMapping("/articles")
+    public String getArticles(Model model){
+        List<ArticleListViewResponse> articles = blogService.findAll()
+                .stream()
+                .map(ArticleListViewResponse::new)
+                .toList();
+        model.addAttribute("articles", articles);
+
+        return "articleList";
+    }
+
+    @GetMapping("/articles/{id}")
+    public String getArticle(@PathVariable Long id, Model model){
+        Article article = blogService.findById(id);
+        model.addAttribute("article", article);
+
+        return "article";
+    }
+    // ...
+}
+```
+
+## 뷰리졸버
+> prefix : 물리적 위치
+>
+> suffix : 파일 확장자명
+
+```properties
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+```
+
+## 동작형태
+![스크린샷 2024-05-31 오전 9 38 48](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/08570318-1f8f-4a81-a724-e91dc36dec84)
+{: .align-center}
 
 
 
