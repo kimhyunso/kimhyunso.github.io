@@ -15,9 +15,9 @@ tags:
 4. `Predicate<T>`
 
 ## `Funcional<T, R>`
-하나의 입력값에 대해 하나를 반환함
-- T : 입력값
-- R : 반환값
+매개변수 O 반환 O
+- T : 입력타입
+- R : 반환타입
 ```java
 @FunctionalInterface
 public interface Function<T, R>{
@@ -27,8 +27,8 @@ public interface Function<T, R>{
 ```
 
 ## `Consumer<T>`
-입력을 해도 반환하지 않음
-- T : 입력값
+매개변수 O 반환 X
+- T : 입력타입
 ```java
 @FunctionalInterface
 public interface Consumer<T>{
@@ -36,3 +36,38 @@ public interface Consumer<T>{
     // ...
 }
 ```
+## `Supplier<T>`
+매개변수 X 반환 O
+- T : 반환타입
+```java
+@FunctionalInterface
+public interface Supplier<T>{
+    T get();
+    // ...
+}
+```
+
+## `Predicate<T>`
+매개변수 O 반환 `boolean`
+- T : 매개변수
+```java
+@FunctionalInterface
+public interface Predicate<T>{
+    boolean test(T t);
+    // ...
+}
+```
+
+## 합성함수
+- `andThen()`
+- `compose()`
+```java
+
+
+```
+
+
+
+
+
+
