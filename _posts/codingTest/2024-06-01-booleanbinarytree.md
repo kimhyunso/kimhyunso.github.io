@@ -1,5 +1,5 @@
 ---
-title:  "99클럽 코테 스터디 1일차 TIL + BinaryTree"
+title:  "99클럽 코테 스터디 1일차 TIL - 트리순환문제"
 layout: single
 categories:
   - codingtest
