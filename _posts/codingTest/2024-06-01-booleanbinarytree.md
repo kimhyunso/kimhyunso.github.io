@@ -2,7 +2,7 @@
 title:  "99클럽 코테 스터디 1일차 TIL + BinaryTree"
 layout: single
 categories:
-  - codingTest
+  - codingtest
 tags:
 	- 99클럽
 	- 코딩테스트 준비
