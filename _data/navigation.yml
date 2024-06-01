@@ -10,7 +10,7 @@ sidebar-category:
       - title: "자바"
         url: "categories/java"
         category: "java"
-        - title: "스프링"
+      - title: "스프링"
         url: "categories/spring"
         category: "spring"
       - title: "파이썬"
@@ -32,15 +32,11 @@ sidebar-category:
       - title: "TDD"
         url: "categories/tdd"
         category: "tdd"
-  - title: "프레임워크"
-    children:
-      
   - title: "코딩테스트"
     children:
       - title: "99클럽TIL"
         url: "categories/codingtest"
         category: "codingtest"
-
   - title: "단축키모음"
     children:
       - title: "인텔리제이"
