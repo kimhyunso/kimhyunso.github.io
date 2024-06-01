@@ -11,8 +11,11 @@ tags:
 # 들어가기 앞서
 자바는 함수형 프로그래밍이 아닌 객체 지향 프로그래밍을 따르고 있기 때문에 자바는 적합하지 않을 수 있다.
 
-일부 적합하지 않은 곳은 자바가 아닌 언어를 사용 할 수 있다.
-
+## JShell 실행 방법
+**JDK 14버전 이상만 지원**
+```shell
+$ jshell -v
+```
 
 # 선언형과 명령형 프로그래밍
 ## 선언형 (Declarative)
@@ -93,34 +96,29 @@ public class Person{
         return new Person(age);
     }
 
-    public Person setNameAndAge(int age, String name){
+    public Person setPerson(int age, String name){
         return new Person(age, name);
     }
 }
 ```
 
 ## 일급함수
-함수를 다른 인수로 전달 및 반환값으로 사용할 수 있으며 변수에 할당할 수 있는 함수 (자바에선 불가능)
+**함수를 다른 인수로 전달 및 반환값으로 사용**할 수 있으며 **변수에 할당할 수 있는 함수**
 
-```javascript
-function sayHello() {
-  return "Hello ";
-}
-function greeting(helloMessage, name) {
-  console.log(helloMessage() + name);
-}
+```java
+Function<String, String> sayHello = input -> input;
+Function<String, String> greeting = input -> input + " World!";
 
-greeting(sayHello, "World!"); // Hello World!
+sayHello.andThen(greeting)
+        .apply("Hello"); // Hello World!
+
+greeting.compose(sayHello)
+        .apply("Hello"); // Hello World!
 ```
 
 ## 고차 함수
-일급 함수의 틍성을 바탕으로 함수를 인수로 받거나, 반환하거나 또는 두가지 모드 가능하게 해야함
-```javascript
-const arr1 = [1, 2, 3];
-
-const arr2 = arr1.map(function(item) {
-  return item * 2;
-});
-
-console.log(arr2); // 2, 4, 6
+일급 함수의 특성을 바탕으로 **함수를 인수로 받거나**, **반환하거나 또는 두가지 모드 가능**하게 해야함
+```java
+// BinaryOperator를 사용하여 두 수를 더하는 일급함수를 정의
+BinaryOperator<BinaryOperator<Integer>> higherOrderFunction = (operation) -> (a, b) -> operation.apply(a, b);
 ```
