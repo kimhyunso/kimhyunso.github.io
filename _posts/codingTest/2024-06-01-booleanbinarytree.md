@@ -4,11 +4,11 @@ layout: single
 categories:
   - codingtest
 tags:
-  - "99클럽"
-  - "코딩테스트 준비"
-  - "개발자 취업"
-  - "항해99"
-  - "TIL"
+  - 99클럽
+  - 코딩테스트 준비
+  - 개발자 취업
+  - 항해99
+  - TIL
 ---
 
 # 오늘의 학습 키워드 
@@ -48,7 +48,7 @@ tags:
 {: .align-center}
 
 # 결과물
-https://github.com/kimhyunso/sail-99_withPython
+[결과물보러가기](https://github.com/kimhyunso/sail-99_withPython/tree/main/2331.EvaluateBooleanBinaryTree)
 
 
 
