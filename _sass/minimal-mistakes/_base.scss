@@ -123,25 +123,24 @@ blockquote {
   }
 }
 
-p {
-  text-align: justify;
-  word-break: break-all;
-}
 
 /* links */
 
 a {
   text-decoration: none; // 추가
+  color: #fff !important;
   &:focus {
     @extend %tab-focus;
   }
 
   &:visited {
-    color: $link-color-visited;
+    // color: $link-color-visited;
+    color: #fff;
   }
 
   &:hover {
-    color: $link-color-hover;
+    // color: $link-color-hover;
+    color: #fff;
     outline: 0;
   }
 }
