@@ -42,8 +42,10 @@ sidebar-category:
         url: "categories/spring"
         category: "spring"
   - title: "코딩테스트"
-    url: "codingTest"
-    category: "codingTest"
+    children:
+      - title: "99클럽TIL"
+        url: "categories/codingtest"
+        category: "codingtest"
 
 
 
