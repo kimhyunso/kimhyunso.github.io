@@ -61,7 +61,6 @@ capture(); // 정답 : 42
 final List<String> fruitList = new ArrayList<>();
 
 Runnable addItem = () -> wordList.add("apple");
-
 addItem.run(); // fruitList : [apple]
 ```
 
@@ -85,6 +84,5 @@ helloWorld.sayHello("gildong");
 
 // 람다
 HelloWorld<String> helloWorld = name -> "Hello " + name + " World!";
-
 helloWorld.sayHello("poodle");
 ```
