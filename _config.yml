@@ -114,7 +114,7 @@ analytics:
 author:
   name             : "고양이가 코딩중"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "안녕하세요!"
+  bio              : "남들도 알아볼 수 있는 코드를 작성하자!"
   location         : # ""
   # email            : "gustn9515@naver.com"
   links:
