@@ -120,7 +120,7 @@ $f(n) = f(n - 1) + f(n - 2)$
 다음에는 조금 더 패턴을 찾아보고 적용시킬 수 있도록 노력해야겠다.
 
 # 결과물
-[결과물보러가기](https://github.com/kimhyunso/sail-99_withPython/tree/main/%EB%82%A0%EC%A7%9C%EB%B9%84%EA%B5%90%ED%95%98%EA%B8%B0)
+[결과물보러가기](https://github.com/kimhyunso/sail-99_withPython/tree/main/118.Pascal'sTriangle)
 
 
 
