@@ -24,6 +24,9 @@ sidebar-category:
       - title: "데이터베이스"
         url: "categories/database"
         category: "database"
+      - title: "AWS"
+        url: "categories/aws"
+        category: "aws"
   - title: "프로그래밍기법"
     children:
       - title: "함수형프로그래밍"
