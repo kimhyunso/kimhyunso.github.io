@@ -75,6 +75,8 @@ tags:
 
 # 결과물
 [첫번째 문제 결과물보러가기](https://github.com/kimhyunso/sail-99_withPython/blob/main/2824.CountPairsWhoseSumisLessthanTarget)
+
+
 [두번째 문제 결과물보러가기](https://github.com/kimhyunso/sail-99_withPython/tree/main/35.SearchInsertPosition)
 
 
