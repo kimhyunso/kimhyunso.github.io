@@ -2,10 +2,10 @@
 title:  "함수형 기초"
 layout: single
 categories:
-    - functional
+  - java
 tags:
-    - o'reilly
-    - 함수형 프로그래밍 
+  - o'reilly
+  - 함수형 프로그래밍 
 ---
 
 # 들어가기 앞서
