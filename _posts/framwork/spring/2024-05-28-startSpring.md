@@ -7,7 +7,7 @@ tags:
     - 스프링 부트
 ---
 
-# 스프링 부트 시작
+## 스프링 부트 시작
 > **https://start.spring.io**
 
 ## Dependencies
@@ -36,9 +36,9 @@ tags:
 >
 > Artifact와 비슷하여 같은 이름을 쓰는 경우가 많음
 
-# 스프링 컨테이너
+## 스프링 컨테이너
 
-# 의존성 주입 (DI: Depandency Injection)
+## 의존성 주입 (DI: Depandency Injection)
 ## `@Autowired`
 > 필드
 >
@@ -168,9 +168,11 @@ public class BlogAPIController{
 }
 ```
 ### `@Controller`
+라우터 역활을 한다.
+
 `Model` : html에 데이터를 전달해주기 위한 객체
 
-`String`으로 리턴시, 물리적 위치에서 해당 파일을 찾아 보여준다.
+`String`으로 리턴시, 물리적 위치에서 해당 파일을 찾아 보여준다. -> 뷰리졸버와 연관이 있다.
 
 ```java
 @RequiredArgsConstructor
