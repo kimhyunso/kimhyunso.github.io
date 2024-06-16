@@ -2,7 +2,7 @@
 title:  "함수형 자바"
 layout: single
 categories:
-	- java
+  - java
 tags:
   - o'reilly
   - 함수형 프로그래밍
