@@ -48,6 +48,20 @@ value = 'computer'
 
 오늘은 시간이 남아 미들러 문제도 풀이를 해보았다.
 
+미들러 문제는 조합의 문제였다.
+
+조합의 정의는 아래와 같다.
+
+> 서로 다른 원소를 가진 집합에서 중복이 없고 순서와 상관 없이 선택하는 경우의 수
+>
+> 예를 들어 n = 2, [A, B, C]가 있다면 해당 배열로 조합가능한 결과를 만들어라 AB, AC, BC가 된다.
+
+
+![조합통과](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/9b834edf-f1de-49ae-a394-13809062e3b3)
+{: .align-center}
+
+
+
 내일도 시간이 남으면 미들러 문제도 풀이해보고 다른 사람들의 풀이도 보도록 노력해야겠다.
 
 # 결과물
@@ -94,6 +108,12 @@ class Solution:
 ```
 
 # 미들러 문제
+## 문제 내용
+![조합문제](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/cde6f601-1357-4ea5-ac60-8323088ec49c)
+{: .align-center}
+
+## 풀이 방법
+
 
 ```python
 import itertools
