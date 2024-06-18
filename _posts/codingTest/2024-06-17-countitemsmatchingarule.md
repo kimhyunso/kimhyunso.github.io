@@ -15,7 +15,7 @@ tags:
 문자열
 
 # 오늘 공부한 내용
-`lower()` 함수, `upper()` 함수, `itertools`
+`lower()` 함수, `upper()` 함수, `itertools`, 패킹, 언패킹
 
 # 오늘의 회고
 오늘은 문자열에 대해서 공부를 했다.
@@ -56,13 +56,64 @@ value = 'computer'
 >
 > 예를 들어 n = 2, [A, B, C]가 있다면 해당 배열로 조합가능한 결과를 만들어라 AB, AC, BC가 된다.
 
+이중반복문을 사용하여 풀이를 할 수 있지만 python에서는 `itertools`라는 라이브러리를 지원한다.
+
+### `itertools` 예시
+`itertools.combination()` 함수를 사용하여 아래와 같은 결과를 얻을 수 있다.
+
+결과 `return`은 tuple이다.
+
+```python
+import itertools
+find_list = [a, b, c]
+n = 2
+
+# [(a, b), (a, c), (b, c)]
+result = list(itertools.combination(find_list, n))
+```
+
+### 패킹
+여러개의 데이터를 하나로 묶어주는 것
+
+### 예시
+```python
+num = '123'
+result = list(num)
+
+# tuple로 packing
+student = '홍길동', 20220501
+print(student) # ('홍길동', 20220501)
+```
+
+### 언패킹
+여러개의 데이터의 묶음을 하나의 단위로 쪼개는 것
+
+### 예시
+```python
+result = list(1, 2, 3)
+print(*result) # 1 2 3
+
+student = '홍길동', 20220501
+tuple_to_student = tuple(student)
+print(*tuple_to_student) # '홍길동' 20220501 
+```
+
+위의 라이브러리를 사용하여 조합을 찾았고 리스트와 튜플만 언패킹하면 될 것이라 생각했다. 
+
+언패킹하는 방법은 위와 같이 *(아스트릭)을 사용하면 되기때문에 2중 언패킹을 할려면 두 개의 아스트릭을 사용하면 될 것이라 생각했다.
+
+하지만 **에는 의미가 있었다. **은 dictional를 key와 value를 한번에 볼 수 있도록 하기위해서 언패킹하는 것이였다.
+
+일단 어쩔 수 없이 반복문을 통해 해당 튜플을 꺼내서 튜플 안의 내용을 덧셈 연산 처리한 후 리턴하였다.
+
+결과는 통과였다.
 
 ![조합통과](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/9b834edf-f1de-49ae-a394-13809062e3b3)
 {: .align-center}
 
+오늘은 그래도 언패킹의 개념을 다시한번 상기할 수 있어서 좋았던 날이였다.
 
-
-내일도 시간이 남으면 미들러 문제도 풀이해보고 다른 사람들의 풀이도 보도록 노력해야겠다.
+내일도 시간이 나면 비기너 문제뿐만 아니라 종종 미들러 문제도 풀어보아야겠다.
 
 # 결과물
 ## 문제내용
@@ -109,10 +160,21 @@ class Solution:
 
 # 미들러 문제
 ## 문제 내용
+`CombinationIterator` 클래스가 주어진다.
+
+해당 클래스의 인스턴스를 생성하면 `null`을 출력하고
+
+`next()` 함수를 실행하면 인스턴스 생성시 주어진 리스트와 갯수카운터에 의해 조합의 결과를 리턴한다.
+
+`hasNext()` 함수를 실행하면 현재 조합의 결과가 있는지 없는지를 판단하여 `boolean`의 결과로 반환한다.
+
 ![조합문제](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/cde6f601-1357-4ea5-ac60-8323088ec49c)
 {: .align-center}
 
 ## 풀이 방법
+1. `__init__()` : `itertools.combinations()` 함수를 사용하여 조합결과를 `list`형식으로 초기화하고 combinationLength도 전역변수에 초기화한다.
+2. `next()` : 조합 리스트를 거꾸로 정렬한다. (`pop()` 연산을 하기 위함) `pop()`을 하여 `tuple`을 꺼내고 combinationLength만큼 반복문을 돌며 결과를 더해 `return`한다.
+3. `hasNext()` : 현재 조합 리스트의 길이가 0이상인지 판단한다.
 
 
 ```python
