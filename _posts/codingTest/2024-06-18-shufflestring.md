@@ -54,8 +54,17 @@ return ''.join(result)
 # 결과물
 ## 문제내용
 
+아래와 같이 주어진 리스트와 문자열을 서로 인덱스에 맞게 배치하라
+
+![문제내용](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/9dbc120b-3f37-4ea5-93cb-86ddd8a12e6d)
+{: .align-center}
 
 ## 풀이 방법
+1. dictionary 자료 구조를 사용하여 key에는 리스트의 값을 담는다.
+2. value에는 character를 담는다.
+3. key값들을 정렬시킨다. (0번째인덱스부터 꺼내기 위함)
+4. key를 통해 value를 하나하니씩 꺼내면서 결과값에 더해나간다.
+
 
 ```python
 class Solution:

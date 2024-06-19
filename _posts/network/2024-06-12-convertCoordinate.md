@@ -1,5 +1,5 @@
 ---
-title:  "docker 활용 - 1부"
+title:  "좌표변환 - 1부 (Dokcer 및 postgis 공부)"
 layout: single
 categories:
   - network
@@ -11,13 +11,13 @@ tags:
 ## 하고자 하는 목표
 간단한 x좌표와 y좌표가 있는 csv파일을 업로드 시키면 알아서 좌표로 변환 후 엑셀파일로 변환시켜주는 자동화 작업을 하고 싶음
 
-> 환경 : `docker`
+사실상 대규모의 트래픽을 감당하고 있지 않기 때문에 (대략 20000~3000건의 데이터 처리) 카프카를 사용할 이유는 없다.
+
+> 환경 : docker
 >
-> 사용언어 : `Python`
+> 사용 프레임워크 : Nodejs, Kafka, fastAPI
 >
-> 사용 프레임워크 : `Nodejs`, `Kafka`
->
-> 데이터베이스 : `postgresql/postgis`
+> 데이터베이스 : postgresql/postgis
 
 ## docker 사용이유
 컨테이너로 관리하여 서버를 관리를 편리하게 하기 위해서 사용했다.
@@ -39,7 +39,6 @@ postgresql 기본 포트는 5432이며 DB명은 gis, user명과 password는 post
 ```yml
 version: '3.9'
 volumes:
-  dbbackups:
   postgis-data:
 services:
   db:
@@ -59,27 +58,12 @@ services:
     restart: on-failure
     healthcheck:
       test: "PGPASSWORD=docker pg_isready -h 127.0.0.1 -U docker -d gis"
-
-  dbbackups:
-    image: postgis/postgis:14-3.4
-    hostname: pg-backups
-    volumes:
-      - dbbackups:/backups
-    environment:
-      - DUMPPREFIX=PG_db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_PORT=5432
-      - POSTGRES_HOST=db
-    restart: on-failure
-    depends_on:
-      db:
-        condition: service_healthy
 ```
 
 ![postgresql](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/168b3f5c-cbac-4967-a8f9-267dc5eef96a)
 {: .align-center}
 
+## 아래의 내용은 db테이블 및 데이터에 대해서 도와주신 분이 계셨다.
 
 ### DBeaver 설치
 SQL 관리 도구로서 DBeaver를 설치했다.
