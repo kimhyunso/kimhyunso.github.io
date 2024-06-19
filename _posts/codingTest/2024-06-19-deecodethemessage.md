@@ -35,7 +35,7 @@ tags:
 
 주어진 message를 위에서 치환한 문자로 바꾸어 결과를 반환한다.
 
-대신 공백은 존재해야한다.
+대신 공백은 포함해야한다.
 
 ![문제예시](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/203ae737-0bb2-4f8a-8726-ebd7a36271f7)
 {: .align-center}
@@ -64,6 +64,5 @@ class Solution:
         for context in message:
             result += alpha_dict[context]
             
-        return result
-       
+        return result       
 ```
