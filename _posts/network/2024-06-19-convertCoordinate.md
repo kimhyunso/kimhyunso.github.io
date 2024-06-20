@@ -139,7 +139,7 @@ pandas를 사용했다.
 from fastapi import FastAPI, File, UploadFile
 import pandas as pd
 
-@app.post('/file-upload')
+@app.post('/file')
 def file_upload(file: UploadFile) -> dict:
     read_csv = pd.read_csv(file.file, encoding='utf-8')
     read_x = read_csv.iloc[:,4]
@@ -158,7 +158,7 @@ def file_upload(file: UploadFile) -> dict:
     return result
 ```
 
-![파일업로드테스트](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/6e0110c8-abe4-43b4-9ccb-df5b5968face)
+![파일업로드테스트](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/5190de6c-e10f-4124-8827-58127548bd82)
 {: .align-center}
 
 ### 에러
@@ -174,9 +174,107 @@ def file_upload(file: UploadFile) -> dict:
 ### 해결
 x좌표와 y좌표를 리스트에 `append()`시켜서 `dict()`로 리턴을 하였다.
 
+위의 함수를 바탕으로 하여 x좌표와 y좌표를 데이터베이스 쿼리를 조회하고 결과를 리턴하는 테스팅을 할 것이다.
 
-위의 함수를 바탕으로 하여 x좌표와 y좌표를 데이터베이스 테이블에 
+## 데이터베이스 쿼리 조회 및 결과 리턴
+해당 쿼리는 기존에 도와주시던 분께서 너무 감사하게도 sql쿼리를 짜주셨다.
 
+원래는 해당 테이블을 파악하고 그에 따른 sql쿼리를 짜야하지만 있는 sql쿼리문을 ORM으로 적용해봐야겠다는 생각이 들었다.
+
+### 기존 SQL 쿼리문
+쿼리문이 두 개인 이유는 하나는 도시군구동읍면리 중 도시군구동읍면만 있는 주소 체계가 있기때문에 두 개의 쿼리를 생성해주셨다.
+
+```sql
+-- 도시군구동읍면리
+select D.ctp_kor_nm, C.sig_kor_nm, B.emd_kor_nm, A.li_kor_nm
+  from
+   (select li_cd, substring(li_cd, 1, 8) as up_cd, li_kor_nm
+      from public."Korea_4th"
+     where geometry_within (st_setsrid(st_geomfromtext('POINT(127.135 37.0612)'), 4326), geom) limit 1) as A,
+   (select emd_cd, substring(emd_cd, 1, 5) as up_cd, emd_kor_nm
+      from public."Korea_3rd") as B,
+   (select sig_cd, substring(sig_cd, 1, 2) as up_cd, sig_kor_nm
+      from public."Korea_2nd") as C,
+   (select ctprvn_cd, ctp_kor_nm
+      from public."Korea_1st") as D
+ where A.up_cd = B.emd_cd
+   and B.up_cd = C.sig_cd
+   and C.up_cd = D.ctprvn_cd
+ ;
+
+-- 도시군구동읍면
+select D.ctp_kor_nm, C.sig_kor_nm, B.emd_kor_nm
+  from
+   (select emd_cd, substring(emd_cd, 1, 5) as up_cd, emd_kor_nm
+      from public."Korea_3rd"
+     where geometry_within (st_setsrid(st_geomfromtext('POINT(127.048 37.3007)'), 4326), geom) limit 1) as B,
+   (select sig_cd, substring(sig_cd, 1, 2) as up_cd, sig_kor_nm
+      from public."Korea_2nd") as C,
+   (select ctprvn_cd, ctp_kor_nm
+      from public."Korea_1st") as D
+ where B.up_cd = C.sig_cd
+   and C.up_cd = D.ctprvn_cd
+ ;
+```
+
+### 기존 SQL ORM 변경
+python ORM인 `sqlalchemy`을 사용했다.
+
+위의 쿼리를 ORM으로 변경한 것이다.
+
+
+
+```python
+from db.model import Korea_1st, Korea_2nd, Korea_3rd, Korea_4th
+from sqlalchemy import select, func
+
+dong = (select(Korea_3rd.emd_cd, func.substring(Korea_3rd.emd_cd, 1, 5).label('up_cd'), Korea_3rd.emd_kor_nm)).alias('dong')
+gu = (select(Korea_2nd.sig_cd, func.substring(Korea_2nd.sig_cd, 1, 2).label('up_cd'), Korea_2nd.sig_kor_nm)).alias('gu')
+si = (select(Korea_1st.ctprvn_cd, Korea_1st.ctp_kor_nm)).alias('si')
+
+def si_gu_dong(x, y):
+    dong = (
+        select(Korea_3rd.emd_cd, func.substring(Korea_3rd.emd_cd, 1, 5).label('up_cd'), Korea_3rd.emd_kor_nm)
+        .where(func.ST_Within(func.ST_SetSRID(func.ST_GeomFromText(f'POINT({x} {y})'), 4326), Korea_3rd.geom))
+        .limit(1)
+    ).alias('dong')
+    
+    result = (
+        select(si.c.ctp_kor_nm, gu.c.sig_kor_nm, dong.c.emd_kor_nm)
+        .select_from(dong)
+        .join(gu, dong.c.up_cd == gu.c.sig_cd)
+        .join(si, gu.c.up_cd == si.c.ctprvn_cd)
+    )
+    
+    return result
+
+
+def si_gu_dong_ri(x, y):
+    ri = (
+         select(Korea_4th.li_cd, func.substring(Korea_4th.li_cd, 1, 8).label('up_cd'), Korea_4th.li_kor_nm)
+        .where(func.ST_Within(func.ST_SetSRID(func.ST_GeomFromText(f'POINT({x} {y})'), 4326), Korea_4th.geom))
+        .limit(1)
+    ).alias('ri')
+
+    result = (
+        select(si.c.ctp_kor_nm, gu.c.sig_kor_nm, dong.c.emd_kor_nm, ri.c.li_kor_nm)
+        .select_from(ri)
+        .join(dong, ri.c.up_cd == dong.c.emd_cd)
+        .join(gu, dong.c.up_cd == gu.c.sig_cd)
+        .join(si, gu.c.up_cd == si.c.ctprvn_cd)
+    )
+
+    return result
+```
+
+### api와 접목해보기
+```python
+# main.py
+
+```
+
+
+3부에서는 카프카 활용에 대해서 포스팅을 할 예정이다.
 
 
 
