@@ -222,8 +222,6 @@ python ORM인 `sqlalchemy`을 사용했다.
 
 위의 쿼리를 ORM으로 변경한 것이다.
 
-
-
 ```python
 from db.model import Korea_1st, Korea_2nd, Korea_3rd, Korea_4th
 from sqlalchemy import select, func
@@ -269,8 +267,26 @@ def si_gu_dong_ri(x, y):
 
 ### api와 접목해보기
 ```python
-# main.py
+from fastapi import FastAPI, File, UploadFile
+import pandas as pd
+from db.query import si_gu_dong_ri, si_gu_dong
+from db.database import SessionLocal
 
+db = SessionLocal()
+
+# main.py
+@app.post('/file-convert')
+def file_upload(file: UploadFile) -> list:
+    read_csv = pd.read_csv(file.file, encoding='utf-8')
+    read_x = read_csv.iloc[:,4]
+    read_y = read_csv.iloc[:,5]
+
+    result = [db.execute(si_gu_dong_ri(x, y)).fetchone() for x, y in zip(read_x, read_y)]
+
+    if not result:
+        result = [db.execute(si_gu_dong(x, y)).fetchone() for x, y in zip(read_x, read_y)]
+
+    return result
 ```
 
 
