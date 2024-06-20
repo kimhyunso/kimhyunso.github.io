@@ -50,7 +50,16 @@ for num in nums:
 ![통과](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/29d8ea67-5928-41bf-9aed-3e876bd30885)
 {: .align-center}
 
-내일도 한가지씩 알아갈 수 있도록 노력해야겠다.
+또한 모각코를 통해 코딩을 하고 피드백을 받을 수 있었다.
+
+리스트의 길이가 2이하이면 -1을 반환하고 나머지 아무값이나 반환하는 것으로 피드백을 받았다.
+
+![피드백 후 통과](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/812eca79-e35e-4989-a953-84c44a4f545b)
+{: .align-center}
+
+
+내일은 좋은 결과물을 만들 수 있도록 다시 나의 풀이에 대해 생각해봐야겠다.
+
 
 # 결과물
 ## 문제내용
@@ -68,7 +77,14 @@ for num in nums:
 3. 같지 않다면 결과 리스트에 추가한다.
 4. 만약 결과 리스트에 값이 존재하지 않는다면 -1을 반환하고 존재한다면 맨 처음 요소를 반환한다.
 
+
+### 피드백 풀이
+1. 주어진 리스트를 정렬한다.
+2. 리스트의 길이가 2이하이면 `return -1`을 한다.
+3. 주어진 리스트의 아무 값이나 반환한다.
+
 ```python
+# 첫번째 풀이
 class Solution:
     def findNonMinOrMax(self, nums: List[int]) -> int:
         nums.sort()
@@ -83,4 +99,14 @@ class Solution:
             return -1
     
         return result[0]  
+
+# 피드백 받은 후 풀이
+class Solution:
+    def findNonMinOrMax(self, nums: List[int]) -> int:
+        nums.sort()
+        if len(nums) <= 2:
+            return -1
+        
+        
+        return nums[1]
 ```
