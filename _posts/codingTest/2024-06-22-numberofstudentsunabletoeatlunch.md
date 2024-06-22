@@ -1,5 +1,5 @@
 ---
-title:  "99클럽 코테 스터디 22차 TIL - 스택/큐"
+title:  "99클럽 코테 스터디 22일차 TIL - 스택/큐"
 layout: single
 categories:
   - codingtest
