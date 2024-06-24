@@ -5,7 +5,7 @@ main:
   - title: "CATEGORIES"
     url: "categories/categories"
 sidebar-category:
-  - title: "언어"
+  - title: "Language"
     children:
       - title: "자바"
         url: "categories/java"
@@ -16,7 +16,10 @@ sidebar-category:
       - title: "파이썬"
         url: "categories/python"
         category: "python"
-  - title: "네트워크 및 데이터베이스"
+      - title: "TDD"
+        url: "categories/tdd"
+        category: "tdd"
+  - title: "Network/Database"
     children:
       - title: "네트워크"
         url: "categories/network"
@@ -27,12 +30,12 @@ sidebar-category:
       - title: "AWS"
         url: "categories/aws"
         category: "aws"
-  - title: "프로그래밍기법"
+  - title: "toyProject"
     children:
-      - title: "TDD"
-        url: "categories/tdd"
-        category: "tdd"
-  - title: "코딩테스트"
+      - title: "toyProject"
+        url: "categories/sideproject"
+        category: "sideproject"
+  - title: "CodingTestStudy"
     children:
       - title: "99클럽TIL"
         url: "categories/codingtest"
@@ -42,7 +45,6 @@ sidebar-category:
       - title: "인텔리제이"
         url: "categories/intellij"
         category: "intellij"
-
 
 
 

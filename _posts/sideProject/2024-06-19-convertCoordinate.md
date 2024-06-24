@@ -1,10 +1,11 @@
 ---
-title:  "좌표변환 - 2부 (kafka 공부)"
+title:  "좌표변환 - 2부 (fastAPI)"
 layout: single
 categories:
-  - network
+  - sideproject
 tags:
-  - "kafka"
+  - faseAPI
+  - python
 ---
 
 ## 하고자 하는 목표
@@ -73,9 +74,9 @@ def main() -> dict:
 ## 실행 및 테스트해보기
 해당 url http://127.0.0.1:8000에서 결과를 확인할 수도 있지만
 
-테스트를 위해 http://127.0.0.1:8000/docs를 활용했다.
+테스트를 위해 swagger를 사용했다.
 
-swagger같은 RESTAPI 명세서
+> http://127.0.0.1:8000/docs
 
 ```shell
 # 실행 명령어
@@ -135,6 +136,24 @@ file을 업로드하여 x좌표와 y좌료를 읽어드린다.
 
 pandas를 사용했다. 
 
+### 에러
+처음에는 pandas로 읽은 x좌표와 y좌표를 바로 리턴하기 위해 `return {'x' : read_x, 'y' : read_y}`를 사용했었다.
+
+하지만 다음과 같은 에러가 발생했다. 자세히 읽어보니 `serialize unknown type` 직렬화 타입 확인 불가라고 나와 있었다. 
+
+문제는 `return`시 type이 `pandas.Series`였던 것이 문제였다.
+
+![에러](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/399ce87a-6df1-40a3-9b49-59d2a6fb936e)
+{: .align-center}
+
+### 해결
+x좌표와 y좌표를 리스트에 `append()`시켜서 `dict()`로 리턴을 하였다.
+
+위의 함수를 바탕으로 하여 x좌표와 y좌표를 데이터베이스 쿼리를 조회하고 결과를 리턴하는 테스팅을 할 것이다.
+
+
+
+
 ```python
 from fastapi import FastAPI, File, UploadFile
 import pandas as pd
@@ -161,20 +180,7 @@ def file_upload(file: UploadFile) -> dict:
 ![파일업로드테스트](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/5190de6c-e10f-4124-8827-58127548bd82)
 {: .align-center}
 
-### 에러
-처음에는 pandas로 읽은 x좌표와 y좌표를 바로 리턴하기 위해 `return {'x' : read_x, 'y' : read_y}`를 사용했었다.
 
-하지만 다음과 같은 에러가 발생했다. 자세히 읽어보니 `serialize unknown type` 직렬화 타입 확인 불가라고 나와 있었다. 
-
-문제는 `return`시 type이 `pandas.Series`였던 것이 문제였다.
-
-![에러](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/399ce87a-6df1-40a3-9b49-59d2a6fb936e)
-{: .align-center}
-
-### 해결
-x좌표와 y좌표를 리스트에 `append()`시켜서 `dict()`로 리턴을 하였다.
-
-위의 함수를 바탕으로 하여 x좌표와 y좌표를 데이터베이스 쿼리를 조회하고 결과를 리턴하는 테스팅을 할 것이다.
 
 ## 데이터베이스 쿼리 조회 및 결과 리턴
 해당 쿼리는 기존에 도와주시던 분께서 너무 감사하게도 sql쿼리를 짜주셨다.
