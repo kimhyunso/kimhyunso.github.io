@@ -1,11 +1,13 @@
 ---
-title:  "좌표변환 - 1부 (Dokcer 및 postgis 공부)"
+title:  "좌표변환 - 1부 (Dokcer 및 postgis)"
 layout: single
 categories:
-  - network
+  - sideproject
 tags:
-  - "docker-compose"
-  - "docker"
+  - docker-compose
+  - docker
+  - postgis
+  - postgres
 ---
 
 ## 하고자 하는 목표

@@ -1,10 +1,11 @@
 ---
-title:  "좌표변환 - 2부 (kafka 공부)"
+title:  "좌표변환 - 2부 (fastAPI)"
 layout: single
 categories:
-  - network
+  - sideproject
 tags:
-  - "kafka"
+  - faseAPI
+  - python
 ---
 
 ## 하고자 하는 목표
