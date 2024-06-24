@@ -90,8 +90,6 @@ class RecentCounter:
 3. q안에 t를 추가한다.
 4. q의 길이를 반환한다.
 
-
-
 ```python
 class RecentCounter:
     def __init__(self):
