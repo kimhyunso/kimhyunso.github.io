@@ -1,5 +1,5 @@
 ---
-title:  "99클럽 코테 스터디 14차 TIL - 배열"
+title:  "99클럽 코테 스터디 14일차 TIL - 배열"
 layout: single
 categories:
   - codingtest
@@ -44,7 +44,7 @@ nums 배열안에 n번째 까지는 x배열이되고 n + 1부터 nums.length - 1
 
 아래와 같이 섞어라
 
-$[x_1, y_1, x_2, y_2, x_3, y_3]$
+> [x_1, y_1, x_2, y_2, x_3, y_3]
 
 ![Shuffle the Array문제내용](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/62aeeb92-475e-4840-ac15-9162e9c8cb2d)
 {: .align-center}

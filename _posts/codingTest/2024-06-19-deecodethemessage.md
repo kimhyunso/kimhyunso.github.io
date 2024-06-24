@@ -1,5 +1,5 @@
 ---
-title:  "99클럽 코테 스터디 19차 TIL - 문자열"
+title:  "99클럽 코테 스터디 19일차 TIL - 문자열"
 layout: single
 categories:
   - codingtest

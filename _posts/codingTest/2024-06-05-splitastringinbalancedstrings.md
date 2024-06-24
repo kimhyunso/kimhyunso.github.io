@@ -30,23 +30,23 @@ tags:
 
 첫번째로 객체가 비어있는 지 판단하는 방식이 나름 어려웠다.
 
-예를들어 아래와 같은 코드가 있을 때 안에 값이 없으면 `False`이고 안에 값이 있으면 `True`인 것이 어려웠다.
+값이 있다면 `True` / 없다면 `False`
 
 ```python
 string = ''
-if string:
-    print('string 안에 값이 있습니다.')
+if string:  # False
+    print('string 안에 값이 없습니다.') 
 
 string = '홍길동'
-if string:
+if string:  # True
     print('string 안에 값이 있습니다.')
 
 lists = []
-if lists:
-    print('배열 안에 값이 있습니다.')
+if lists:   # False
+    print('배열 안에 값이 없습니다.')
 
 lists = [1, 2]
-if lists:
+if lists:   # True
     print('배열 안에 값이 있습니다.')
 ```
 
