@@ -24,7 +24,7 @@ tags:
 ## kafka
 > 사용이유 : 데이터가 많지는 않지만 엑셀 자동화 작업을 위해 시트 마다 토픽을 부여하여 consumer가 처리한 결과물을 `merge`하면 될 것이라 생각했기 때문에 사용하게 되었다.
 
-![Group 114](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/df6dc5e4-b390-4e87-a9d0-4db10d34d9da)
+![Group 115](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/0cd3d89f-f3b5-4608-891b-738c6e9904c8)
 {: .align-center}
 
 ### server
