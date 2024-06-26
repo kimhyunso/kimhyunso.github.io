@@ -73,6 +73,8 @@ nodejs를 사용했다.
 
 
 
+
+
 ## consumer
 전의 포스팅에서 fastAPI를 사용하여 테스팅해본 것을 fastAPI를 제거하고 consumer로써 사용했다.
 
