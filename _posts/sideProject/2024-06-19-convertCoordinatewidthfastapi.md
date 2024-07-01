@@ -157,9 +157,18 @@ x좌표와 y좌표를 리스트에 `append()`시켜서 `dict()`로 리턴을 하
 
 위의 함수를 바탕으로 하여 x좌표와 y좌표를 데이터베이스 쿼리를 조회하고 결과를 리턴하는 테스팅을 할 것이다.
 
+### dbConnection 오류
+![dbConnection오류](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/32efa5aa-8336-43b1-966b-cc3bd1979fe9)
+{: .align-center}
 
+### 해결
+해당 패키지에 `psycopg2`가 포함되어 있어 인스톨을 진행했다.
 
+```sh
+$ pip install psycopg2-binary
+```
 
+### 파일 업로드 테스트
 ```python
 from fastapi import FastAPI, File, UploadFile
 import pandas as pd
