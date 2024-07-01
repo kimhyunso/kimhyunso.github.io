@@ -1,5 +1,5 @@
 ---
-title:  "좌표변환 - 3부 (kafka)"
+title:  "좌표변환 - 4부 (producer, consumer)"
 layout: single
 categories:
   - sideproject
@@ -26,5 +26,126 @@ tags:
 > 사용 프레임워크 : Nodejs, Kafka, fastAPI
 >
 > 데이터베이스 : postgresql/postgis
+
+
+## producer
+nodejs를 사용했다.
+
+https://nodejs.org/en
+
+프로듀서 부분만 포스팅을 하겠다. 나머지 부분은 아래 url에서 확인하길 바란다.
+
+https://github.com/geosoft-mini/producer-nodejs
+
+
+### npm kafkajs
+https://www.npmjs.com/package/kafkajs
+
+
+### npm express
+https://www.npmjs.com/package/express
+
+```js
+// producer/producer.js
+const { Kafka } = require('kafkajs')
+const { Partitioners } = require('kafkajs')
+
+const kafka = new Kafka({
+	clientId: 'test-group',
+	brokers: ['localhost:9092']
+})
+
+const producer = kafka.producer({
+	maxRequestSize: 200000000,
+	createPartitioner: Partitioners.LegacyPartitioner
+})
+
+const initKafka = async () => {
+	await producer.connect()
+}
+
+initKafka()
+module.exports = { producer }
+
+
+// routers/readCsv/readCsv.js
+const express = require('express')
+const router = express.Router()
+const multer = require('multer')
+const { producer } = require('../../producer/producer')
+
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
+const topic = 'overspeed-detail-address'
+
+
+const sendProcuder = async (topic, result, partitionIndex) => {
+	await producer.send({
+		topic: topic,
+		messages: [
+			{ value: JSON.stringify(result), partition: partitionIndex % 3 },
+		],
+	})
+}
+
+
+router.post('/', upload.single('list.csv'), async (req, res, next) => {
+
+	const files = req.file.buffer.toString('utf-8')
+	const rows = files.split('\r\n')
+	rows.shift()
+
+	const splitNum = 100
+
+	for (let i = 0; i < rows.length / splitNum; i++) {
+		const result = []
+		for (let j = splitNum * i; j < splitNum * (i + 1); j++){
+			try { result.push(rows[j].split(',')) } catch (error) {}
+		}	
+		await sendProcuder(topic, result, i)
+	}
+
+	res.send('response ok')
+})
+
+module.exports = router;
+```
+
+### 경보
+위의 코드를 실행하면 아래와 같은 경보창이 뜬다.
+
+경보창 메시지에서 url을 클릭해서 들어가니 아래와 같은 문구가 있었다.
+
+![경보](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/84817978-c690-4905-8eb4-d8d848a50b76)
+{: .align-center}
+
+
+### 경보해결
+![경보해결](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/7315712d-006f-48fc-8bd1-ecd5184df91d)
+{: .align-center}
+
+## consumer
+전의 포스팅에서 fastAPI 부분을 제외하고 ORM사용 부분만 채택했다.
+
+https://github.com/geosoft-mini/consumer-python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
