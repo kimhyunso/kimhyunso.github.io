@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 5일차 TIL - 그리디 알고리즘"
-layout: archive
+layout: single
 categories:
   - codingtest
 tags:

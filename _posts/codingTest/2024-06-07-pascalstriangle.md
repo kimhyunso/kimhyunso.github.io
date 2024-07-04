@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 7일차 TIL - 다이나믹 프로그래밍"
-layout: archive
+layout: single
 categories:
   - codingtest
 tags:

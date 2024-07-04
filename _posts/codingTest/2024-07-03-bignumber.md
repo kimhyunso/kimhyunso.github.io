@@ -1,6 +1,6 @@
 ---
 title:  "이것이 코딩테스트다 - 1일차"
-layout: archive
+layout: single
 categories:
   - codingtest
 tags:

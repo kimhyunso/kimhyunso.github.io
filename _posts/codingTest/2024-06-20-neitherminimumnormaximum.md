@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 20일차 TIL - 정렬"
-layout: archive
+layout: single
 categories:
   - codingtest
 tags:
