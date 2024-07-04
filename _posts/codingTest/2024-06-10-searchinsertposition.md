@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 10일차 TIL - 이진 탐색"
-layout: single
+layout: archive
 categories:
   - codingtest
 tags:

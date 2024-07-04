@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 12일차 TIL - 그래프"
-layout: single
+layout: archive
 categories:
   - codingtest
 tags:

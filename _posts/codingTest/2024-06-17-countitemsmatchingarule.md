@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 17일차 TIL - 문자열"
-layout: single
+layout: archive
 categories:
   - codingtest
 tags:

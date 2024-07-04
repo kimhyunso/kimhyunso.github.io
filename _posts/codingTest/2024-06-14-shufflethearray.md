@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 14일차 TIL - 배열"
-layout: single
+layout: archive
 categories:
   - codingtest
 tags:

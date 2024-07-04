@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 3일차 TIL - 트리의 깊이문제"
-layout: single
+layout: archive
 categories:
   - codingtest
 tags:

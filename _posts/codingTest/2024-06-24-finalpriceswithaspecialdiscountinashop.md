@@ -1,6 +1,6 @@
 ---
 title:  "99클럽 코테 스터디 24일차 TIL - 스택/큐"
-layout: single
+layout: archive
 categories:
   - codingtest
 tags:
