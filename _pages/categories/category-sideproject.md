@@ -1,6 +1,6 @@
 ---
 title: "토이 프로젝트 실험실"
-layout: single
+layout: archive
 permalink: categories/sideproject
 author_profile: true
 sidebar:                  

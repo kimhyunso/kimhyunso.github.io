@@ -1,6 +1,6 @@
 ---
-title: "Spring 모음"
-layout: single
+title: "Spring 실험실"
+layout: archive
 permalink: categories/spring
 author_profile: true
 sidebar:                  

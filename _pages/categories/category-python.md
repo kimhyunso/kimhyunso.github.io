@@ -1,6 +1,6 @@
 ---
-title: "파이썬 모음"
-layout: single
+title: "파이썬 실험실"
+layout: archive
 permalink: categories/python
 author_profile: true
 sidebar:                  

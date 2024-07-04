@@ -1,6 +1,6 @@
 ---
 title: "AWS 실험실"
-layout: single
+layout: archive
 permalink: categories/aws
 author_profile: true
 sidebar:                  

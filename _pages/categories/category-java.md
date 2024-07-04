@@ -1,6 +1,6 @@
 ---
-title: "자바 모음"
-layout: single
+title: "자바 실험실"
+layout: archive
 permalink: categories/java
 author_profile: true
 sidebar:                  

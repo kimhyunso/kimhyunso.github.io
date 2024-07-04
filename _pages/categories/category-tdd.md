@@ -1,6 +1,6 @@
 ---
 title: "TDD 모음"
-layout: single
+layout: archive
 permalink: categories/tdd
 author_profile: true
 sidebar:                  

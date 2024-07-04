@@ -1,6 +1,6 @@
 ---
-title: "네트워크 모음"
-layout: single
+title: "네트워크 실험실"
+layout: archive
 permalink: categories/network
 author_profile: true
 sidebar:                  

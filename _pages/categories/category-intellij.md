@@ -1,6 +1,6 @@
 ---
 title: "인텔리제이 단축키"
-layout: single
+layout: archive
 permalink: categories/intellij
 author_profile: true
 sidebar:                  

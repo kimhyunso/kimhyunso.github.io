@@ -1,6 +1,6 @@
 ---
-title: "99클럽 코딩테스트 스터디 TIL"
-layout: single
+title: "코딩테스트 실험실"
+layout: archive
 permalink: categories/codingtest
 author_profile: true
 sidebar:                  
