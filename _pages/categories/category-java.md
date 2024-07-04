@@ -1,6 +1,6 @@
 ---
 title: "자바 실험실"
-layout: archive
+layout: single
 permalink: categories/java
 author_profile: true
 sidebar:                  

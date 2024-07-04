@@ -1,6 +1,6 @@
 ---
 title: "파이썬 실험실"
-layout: archive
+layout: single
 permalink: categories/python
 author_profile: true
 sidebar:                  

@@ -1,6 +1,6 @@
 ---
 title: "코딩테스트 실험실"
-layout: archive
+layout: single
 permalink: categories/codingtest
 author_profile: true
 sidebar:                  

@@ -1,6 +1,6 @@
 ---
 title: "네트워크 실험실"
-layout: archive
+layout: single
 permalink: categories/network
 author_profile: true
 sidebar:                  

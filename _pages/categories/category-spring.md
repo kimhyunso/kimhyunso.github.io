@@ -1,6 +1,6 @@
 ---
 title: "Spring 실험실"
-layout: archive
+layout: single
 permalink: categories/spring
 author_profile: true
 sidebar:                  

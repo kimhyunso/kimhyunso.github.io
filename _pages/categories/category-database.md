@@ -1,6 +1,6 @@
 ---
 title: "데이터베이스 실험실"
-layout: archive
+layout: single
 permalink: categories/database
 author_profile: true
 sidebar:                  
