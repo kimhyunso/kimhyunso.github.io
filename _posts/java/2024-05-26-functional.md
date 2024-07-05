@@ -6,7 +6,8 @@ categories:
 tags:
   - o'reilly
   - 함수형 프로그래밍
-teaser: /assets/images/javaicon.png
+header:
+  teaser: "/assets/javaicon.png"
 ---
 
 # SAM
