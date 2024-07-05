@@ -6,6 +6,7 @@ categories:
 tags:
   - o'reilly
   - 함수형 프로그래밍 
+teaser: /assets/images/javaicon.png
 ---
 
 # 들어가기 앞서
