@@ -128,11 +128,21 @@ $ kafka-topics --bootstrap-server localhost:9092 --create --topic topic --partit
 ```
 
 ## 토픽 리스트 확인하기
-![스크린샷 2024-07-01 오전 9 25 14](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/6c406dfb-2fb9-4a3a-9dd4-342b38f6c3af)
+![토픽리스트확인하기](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/6c406dfb-2fb9-4a3a-9dd4-342b38f6c3af)
 {: .align-center}
 
 ```sh
 $ kafka-topics --list --bootstrap-server localhost:9092
+```
+
+## 토픽 삭제하기
+```sh
+$ kafka-topics --delete --bootstrap-server localhost:9092 --topic topic2
+```
+
+## lag 확인하기
+```sh
+$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group test-group1
 ```
 
 
