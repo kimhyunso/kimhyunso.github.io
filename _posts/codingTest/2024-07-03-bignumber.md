@@ -50,7 +50,7 @@ for i in range(1, m + 1):
 print(result)
 ```
 
-## 문제 보안점
+## 다른 문제 풀이 방법
 `sort()`를 사용할 것, 문제의 핵심은 결국 첫번째로 가장 큰 요소와 두번째로 가장 큰 요소를 순차에 맞게 더하는 것
 
 ```python
@@ -60,15 +60,15 @@ numbers.sort()
 
 result = 0
 
-max_target_first = numbers[-1]
-max_target_second = numbers[-2]
+max_first = numbers[-1]
+max_second = numbers[-2]
 
 for i in range(1, m + 1):
 	if i % (k + 1) == 0:
-		result += max_target_second
+		result += max_second
 		continue
 
-	result += max_target_first
+	result += max_first
 
 print(result)
 ```
