@@ -48,6 +48,17 @@ tags:
 ![로직흐름](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/796fd939-5e29-422c-8568-dceb9bc83bff)
 {: .align-center}
 
+### Web Context (=was) 구조
+![webcontext](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/8eaef459-bc16-4d1b-8b7c-e93d9f8a9b17)
+{: .align-center}
+
+
+### Dispatcher Servelt 구조
+![DispatcherServlet](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/7fed0b80-eb95-4feb-a3bc-8550dd8fbc72)
+{: .align-center}
+
+### Spring Container
+
 
 
 
