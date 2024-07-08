@@ -19,6 +19,13 @@ numbers = [3, 5, 4, 2, 1]
 # 5 + 5 + 4 + 5 + 5 + 4 + 5 = 33
 ```
 
+## 조건
+첫째 줄에 N(2 <= N <= 1,000), M(1 <= M <= 10,000), K(1 <= K <= 10,000)의 자연수가 주어짐
+
+둘째 줄에 N개의 자연수가 주어짐, 각 자연수는 공백으로 구분하며 1 < x < 10,000 이하의 수로 주어짐
+
+입력으로 주어지는 K는 항상 M보다 작거나 같다.
+
 ## 문제 풀이 아이디어
 m번만큼 반복하면서 numbers에 값에서 최대값인 요소를 더한다.
 
@@ -50,7 +57,7 @@ for i in range(1, m + 1):
 print(result)
 ```
 
-## 문제 보안점
+## 다른 문제 풀이 방법
 `sort()`를 사용할 것, 문제의 핵심은 결국 첫번째로 가장 큰 요소와 두번째로 가장 큰 요소를 순차에 맞게 더하는 것
 
 ```python
@@ -60,15 +67,15 @@ numbers.sort()
 
 result = 0
 
-max_target_first = numbers[-1]
-max_target_second = numbers[-2]
+max_first = numbers[-1]
+max_second = numbers[-2]
 
 for i in range(1, m + 1):
 	if i % (k + 1) == 0:
-		result += max_target_second
+		result += max_second
 		continue
 
-	result += max_target_first
+	result += max_first
 
 print(result)
 ```
