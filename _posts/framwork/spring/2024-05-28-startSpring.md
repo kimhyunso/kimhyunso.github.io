@@ -48,7 +48,7 @@ tags:
 ![로직흐름](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/796fd939-5e29-422c-8568-dceb9bc83bff)
 {: .align-center}
 
-### Web Context (=was) 구조
+### 웹 요청 처리 흐름
 ![webcontext](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/8eaef459-bc16-4d1b-8b7c-e93d9f8a9b17)
 {: .align-center}
 
@@ -57,14 +57,15 @@ tags:
 ![DispatcherServlet](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/7fed0b80-eb95-4feb-a3bc-8550dd8fbc72)
 {: .align-center}
 
-### Spring Container
+### Spring Application Context 계층 구조 (=Spring Context)
+- DispatcherServlet, Interceptor, Controller는 ApplicationContext에서 관리되는 빈(Bean)들
 
 ![스프링컨테이너](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/efd98fb4-f0ab-454e-b6de-ec7a6e3120e0)
 {: .align-center}
 
 
-
-![스프링컨테이너2](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/32df1b97-eb67-4568-8e49-0981b080bfe5)
+### 의존성 주입 (DI: Denpandency Injection)
+![의존성주입](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/32df1b97-eb67-4568-8e49-0981b080bfe5)
 
 
 
