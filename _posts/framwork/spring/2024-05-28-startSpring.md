@@ -48,7 +48,7 @@ tags:
 ![로직흐름](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/796fd939-5e29-422c-8568-dceb9bc83bff)
 {: .align-center}
 
-### 웹 요청 처리 흐름
+### 스프링 웹 요청 처리 흐름
 ![webcontext](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/8eaef459-bc16-4d1b-8b7c-e93d9f8a9b17)
 {: .align-center}
 
@@ -57,25 +57,103 @@ tags:
 ![DispatcherServlet](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/7fed0b80-eb95-4feb-a3bc-8550dd8fbc72)
 {: .align-center}
 
-### Spring Application Context 계층 구조 (=Spring Context)
+### 스프링 컨테이너 계층 구조 (=Spring Context)
 - DispatcherServlet, Interceptor, Controller는 ApplicationContext에서 관리되는 빈(Bean)들
+- xml, annotation 등으로 `bean` 구현 가능
+- `bean`들의 생명주기를 관리함
 
-![스프링컨테이너](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/efd98fb4-f0ab-454e-b6de-ec7a6e3120e0)
+### IoC의 분류
+1. DI (Depandency Injection)
+2. DL (Depandency Lookup)
+
+### DI
+빈 설정정보를 바탕으로 의존성을 주입해주는 것
+
+1. setter 주입
+2. 생성자 주입 (권장)
+3. 필드 주입
+
+```java
+@Controller
+@RequiredArgsConstructor
+class AppController {
+    @Autowired
+    private AppService appService;
+    private AppService2 appService2;
+    private final ConstructorService constructorService;
+
+    @Autowired
+    public AppController(AppService2 appService2) {
+        this.appService2 = appService2;
+    }
+
+    @Autowired
+    public void setAppService2(AppService2 appService2){
+        this.appService2 = appService2;
+    }
+}
+```
+
+1. BeanFactory
+2. ApplicationContext
+
+![스프링컨테이너](https://github.com/user-attachments/assets/2e71f817-8a73-4537-a8e5-13640b0e02fc)
 {: .align-center}
 
+```java
+// AnnotationConfig ApplicationContext
+@Configuration
+class AppConfig {
 
-### 의존성 주입 (DI: Denpandency Injection)
-![의존성주입](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/32df1b97-eb67-4568-8e49-0981b080bfe5)
+    private final AppRepository appRepository;
+
+    public AppConig(AppRepository appRepository) {
+        this.appRepository = appRepository;
+    }
+
+    @Bean
+    public AppController appController() {
+        return new AppController(appSerivce());
+    }
+
+    @Bean
+    public AppService appService() {
+        return new AppService(appRepository);
+    }
+}
+
+@RequiredArgsConstructor
+class AppController {
+    private final AppService appService;
+}
+
+@RequiredArgsConstructor
+class AppService {
+    private final AppRepository appRepository;
+}
+
+@Repository
+interface AppRepository {}
+```
 
 
+```xml
+<!-- GenenicXml ApplicationContext -->
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <bean id="appController" class="com.example.controller.AppController">
+        <property name="appService" ref="appService" />
+    </bean>
 
-
-![스크린샷 2024-05-31 오전 9 00 35](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/ce7d2768-8bbf-4bdb-983b-aa103b48b5d6)
-{: .align-center}
-
-![스크린샷 2024-05-31 오전 9 32 22](https://github.com/kimhyunso/kimhyunso.github.io/assets/87798982/2b4c70a2-b675-4da3-a9f2-278e6a9ffb14)
-{: .align-center}
+    <bean id="appService" class="com.example.service.AppService">
+        <property name="appRepository" value="com.example.repository.AppRepository" />
+    </bean>
+</beans>
+```
 
 ## 뷰리졸버
 > prefix : 물리적 위치
@@ -83,9 +161,11 @@ tags:
 > suffix : 파일 확장자명
 
 ```properties
+# 지정안해도됨
 spring.mvc.view.prefix=/WEB-INF/views/
 spring.mvc.view.suffix=.jsp
 ```
+
 
 
 
