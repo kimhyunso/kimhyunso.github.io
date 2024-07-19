@@ -5,6 +5,7 @@ categories:
     - spring
 tags:
     - 스프링 부트
+    - CRUD
 ---
 
 ## 구조
@@ -27,6 +28,7 @@ tags:
 |             L Application.java
 ```
 ## CRUD
+
 ```java
 @RestController
 @RequiredArgsConstructor
