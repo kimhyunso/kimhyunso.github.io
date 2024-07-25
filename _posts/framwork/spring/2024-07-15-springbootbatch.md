@@ -1,5 +1,5 @@
 ---
-title:  "스프링 부트 - batch"
+title:  "스프링 부트 - Batch"
 layout: single
 categories:
     - spring
