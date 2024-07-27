@@ -16,6 +16,11 @@ dfs/bfs
 
 - 스택사용
 
+![dfs](https://github.com/user-attachments/assets/66db5eb5-3e79-4059-9c04-0b298364fcad)
+{: .align-center}
+
+
+
 ```python
 def dfs(graph, check, visited):
     visited[check] = True
