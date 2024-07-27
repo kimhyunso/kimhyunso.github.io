@@ -50,6 +50,9 @@ public class MyController {
 ## `@Retention(RetentionPolicy.RUNTIME)`
 애노테이션의 라이프 사이클 : 애노테이션이 언제까지 살아 남아 있을 지를 정하는 것
 
+![라이프사이클](https://github.com/user-attachments/assets/185da594-8592-4338-b556-85bd52447825)
+{: .align-center}
+
 |value|설명|
 |-|-|
 |SOURCE|소스코드까지 살아남는다|
@@ -58,7 +61,8 @@ public class MyController {
 
 
 
-
+## `@Documented`
+해당 어노테이션을 javadoc 파일에 추가시킬지 여부이다.
 
 
 
