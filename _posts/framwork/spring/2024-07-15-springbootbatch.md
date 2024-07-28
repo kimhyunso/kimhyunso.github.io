@@ -8,9 +8,6 @@ tags:
     - 스프링 배치
 ---
 
-## 개요
-들어가기 앞서, 회사에서 우연치 않게 간단한 배치작업을 개발해야하는 상황이 발생하여 내가 배운 내용들을 글로 남기고자 한다.
-
 ## 공식문서
 https://docs.spring.io/spring-batch/reference/index.html
 
@@ -20,42 +17,64 @@ https://docs.spring.io/spring-batch/reference/index.html
 ## 스케쥴링
 어떠한 작업을 `특정 시간`에 작업을 실행하도록 도와주는 설정
 
-## 배치 아키텍처
-하나의 Job은 여러개의 Step을 가질 수 있으며 하나의 Step은 `ItemReader`, `ItemProcessor`, `ItemWriter`를 가질 수 있다.
-![배치아키텍처](https://github.com/user-attachments/assets/c84c735c-9dfd-4c80-8905-a99b09a0163b)
-{: .align-center}
+## Batch
+- 하나의 Job은 여러개의 Step을 가질 수 있으며 하나의 Step은 `ItemReader`, `ItemProcessor`, `ItemWriter`를 가질 수 있다. 
+- `JobLauncher`, `Job`, `Step`은 `JobRepository`와 상호작용하며 배치 메타 테이블과 서로 상호작용을 하게 된다.
 
-## Job 구성
-![job구성](https://github.com/user-attachments/assets/f44f250b-f162-4cbd-aa96-fbbab8cc2696)
-{: .align-center}
-
-## JobInstance
-
-## JobParameters
-`Job Instance`를 구분하기 위한 파라미터 
-
-![jobParameters](https://github.com/user-attachments/assets/389615c3-46e2-4208-929a-3a2a0a5bce1d)
-{: .align-center}
-
-## JobExecution
-
-## Step
+배치 프로그램은 두 가지 형태의 `Step`을 구성할 수 있다.
 1. Tasklet-based Step
 2. Chunk-based Step
 
-### Tasklet-based Step
-중지 신호를 보낼때까지 반복해서 실행됨
-
-### Chunk-based Step
-데이터 원본의 데이터를 처리해야 하는 시나리오에서 사용됨
-
-![step구성](https://github.com/user-attachments/assets/40f9b81f-dbd0-4992-a351-1163b97b8a70)
+![배치아키텍처](https://github.com/user-attachments/assets/c84c735c-9dfd-4c80-8905-a99b09a0163b)
 {: .align-center}
 
 
+## 메타테이블 분리
+```java
+@Configuration
+public class DataSourceConfig {
+
+    @Primary
+    @Bean(name = "dataSource")
+    public DataSource applicationDataSource( @Value("${spring.datasource.driver-class-name}") String driverClassName,
+                                             @Value("${spring.datasource.url}") String url,
+                                             @Value("${spring.datasource.username}") String username,
+                                             @Value("${spring.datasource.password}") String password) {
+        return DataSourceBuilder.create()
+                .driverClassName(driverClassName)
+                .url(url)
+                .username(username)
+                .password(password)
+                .build();
+    }
+
+    @Bean(name = "subDataSource")
+    public DataSource batchDataSource() {
+        return new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("/org/springframework/batch/core/schema-h2.sql")
+                .generateUniqueName(true)
+                .build();
+    }
 
 
-## StepExecution
+
+    @Bean
+    public JobRepository jobRepository(@Qualifier("subDataSource") DataSource dataSource, PlatformTransactionManager transactionManager) throws Exception {
+        JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
+        factory.setDataSource(dataSource);
+        factory.setTransactionManager(transactionManager);
+        factory.afterPropertiesSet();
+        return factory.getObject();
+    }
+
+}
+```
+
+
+
+## Tasklet-based Step
+
 
 
 

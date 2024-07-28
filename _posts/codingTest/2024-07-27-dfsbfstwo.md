@@ -20,16 +20,14 @@ dfs/bfs
 {: .align-center}
 
 
-
 ```python
-def dfs(graph, check, visited):
-    visited[check] = True
-    print(check, end = ' ')
+def dfs(graph, node, visited):
+    visited[node] = True
+    print(node, end = ' ')
 
     for i in graph[check]:
         if not visited[i]:
           dfs(graph, i, visited)
-
 
 graph = [
     [],
@@ -45,7 +43,7 @@ graph = [
 
 visited = [False] * 9
 
-dfs(graph, 1, visited)
+dfs(graph, 1, visited) # 1 2 7 6 8 3 4 5
 ```
 
 
@@ -53,6 +51,9 @@ dfs(graph, 1, visited)
 너비 탐색 기법 : `O(n)` 시간 소요
 
 - 큐 사용
+
+![bfs](https://github.com/user-attachments/assets/1c39b3bc-1a5c-44a9-a7e0-5286d734b2ac)
+{: .align-center}
 
 ```python
 from collections import deque
@@ -83,7 +84,7 @@ graph = [
 
 visited = [False] * 9
 
-bfs(graph, 1, visited)
+bfs(graph, 1, visited) # 1 2 3 8 7 4 5 6
 ```
 
 
