@@ -50,6 +50,8 @@ String result = replaceSpace("Hello World !!"); // HelloWorld!!
 ## 순수함수
 1. **동일한 입력에 항상 동일한 출력**
 2. 어떤 사이드 이펙트 없이 자기 충족적 성질을 가짐
+
+
 ```java
 public String toLowerName(String name){
     return name.toLowerCase();

@@ -6,11 +6,9 @@ categories:
 tags:
   - o'reilly
   - 함수형 프로그래밍
-header:
-  teaser: "/assets/javaicon.png"
 ---
 
-# SAM
+## SAM (Single Abstract Method)
 1. `Function<T, R>`
 2. `Consumer<T>`
 3. `Supplier<T>`
@@ -18,9 +16,11 @@ header:
 
 ## `Funcional<T, R>`
 하나의 매개변수에 대해 하나의 결과를 반환
+
 > T : 매개변수 타입
 >
 > R : 반환타입
+
 ```java
 @FunctionalInterface
 public interface Function<T, R>{
@@ -34,7 +34,9 @@ result.apply(10); // 20
 
 ## `Consumer<T>`
 매개변수는 있으며 반환은 `Void`
+
 > T : 매개변수 타입
+
 ```java
 @FunctionalInterface
 public interface Consumer<T>{
@@ -48,7 +50,9 @@ result.accept("hongildong"); // hongildong
 
 ## `Supplier<T>`
 매개변수 X 반환 O
+
 > T : 반환타입
+
 ```java
 @FunctionalInterface
 public interface Supplier<T>{
@@ -61,9 +65,11 @@ result.get(); // Hello World!
 ```
 
 ## `Predicate<T>`
+
 > T : 매개변수 타입
 >
 > `boolean` : 반환값
+
 ```java
 @FunctionalInterface
 public interface Predicate<T>{
@@ -76,9 +82,11 @@ result.test(20); // true
 ```
 
 ## 합성함수
+
 > `andThen()`
 > 
 > `compose()`
+
 ```java
 Function<String, String> hello = input -> input;
 Function<String, String> world = input -> input + " World!";
