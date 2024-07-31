@@ -5,13 +5,8 @@ categories:
   - java
 tags:
   - o'reilly
-  - 함수형 프로그래밍 
-header:
-  teaser: "/assets/javaicon.png"
+  - 함수형 프로그래밍
 ---
-
-# 들어가기 앞서
-자바는 함수형 프로그래밍이 아닌 객체 지향 프로그래밍을 따르고 있기 때문에 자바는 적합하지 않을 수 있다.
 
 ## JShell 실행 방법
 **JDK 14버전 이상만 지원**
@@ -19,9 +14,10 @@ header:
 $ jshell -v
 ```
 
-# 선언형과 명령형 프로그래밍
-## 선언형 (Declarative)
+## 선언형과 명령형 프로그래밍
+### 선언형 (Declarative)
 - WHAT
+
 ```java
 public String replaceSpace(String name){
     return name.replaceAll(" ", "");
@@ -30,9 +26,10 @@ public String replaceSpace(String name){
 String result = replaceSpace("Hello World !!"); // HelloWorld!!
 ```
 
-## 명령형 (Imperative)
+### 명령형 (Imperative)
 - 절차지형적
 - HOW
+
 ```java
 public String replaceSpace(String name){
     String result = "";
@@ -47,11 +44,11 @@ public String replaceSpace(String name){
 String result = replaceSpace("Hello World !!"); // HelloWorld!!
 ```
 
-
-# 순수함수와 불순함수
+## 순수함수와 불순함수
 순수함수와 불순함수라고 하여 순수함수가 기능적으로 더 우수하다는 뜻은 아님
+
 ## 순수함수
-1. 동일한 입력에 항상 동일한 출력
+1. **동일한 입력에 항상 동일한 출력**
 2. 어떤 사이드 이펙트 없이 자기 충족적 성질을 가짐
 ```java
 public String toLowerName(String name){
@@ -72,6 +69,7 @@ public String isTest(String name){
 
 ## 불변성
 setter를 사용하지 않는 것
+
 ```java
 public class Person{
     private int age;
@@ -120,6 +118,7 @@ greeting.compose(sayHello)
 
 ## 고차 함수
 일급 함수의 특성을 바탕으로 **함수를 인수로 받거나**, **반환하거나 또는 두가지 모드 가능**하게 해야함
+
 ```java
 // BinaryOperator를 사용하여 두 수를 더하는 일급함수를 정의
 BinaryOperator<BinaryOperator<Integer>> higherOrderFunction = (operation) -> (a, b) -> operation.apply(a, b);
