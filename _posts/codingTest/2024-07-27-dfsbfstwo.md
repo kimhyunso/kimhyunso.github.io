@@ -25,7 +25,7 @@ def dfs(graph, node, visited):
     visited[node] = True
     print(node, end = ' ')
 
-    for i in graph[check]:
+    for i in graph[node]:
         if not visited[i]:
           dfs(graph, i, visited)
 
