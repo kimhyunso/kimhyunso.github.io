@@ -23,7 +23,7 @@ tags:
 
 ```java
 @FunctionalInterface
-public interface Function<T, R>{
+public interface Function<T, R> {
     R apply(T t);
     // ...
 }
@@ -39,7 +39,7 @@ result.apply(10); // 20
 
 ```java
 @FunctionalInterface
-public interface Consumer<T>{
+public interface Consumer<T> {
     void accept(T t);
     // ...
 }
@@ -55,7 +55,7 @@ result.accept("hongildong"); // hongildong
 
 ```java
 @FunctionalInterface
-public interface Supplier<T>{
+public interface Supplier<T> {
     T get();
     // ...
 }
@@ -72,7 +72,7 @@ result.get(); // Hello World!
 
 ```java
 @FunctionalInterface
-public interface Predicate<T>{
+public interface Predicate<T> {
     boolean test(T t);
     // ...
 }

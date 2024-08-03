@@ -19,7 +19,7 @@ $ jshell -v
 - WHAT
 
 ```java
-public String replaceSpace(String name){
+public String replaceSpace(String name) {
     return name.replaceAll(" ", "");
 }
 
@@ -31,7 +31,7 @@ String result = replaceSpace("Hello World !!"); // HelloWorld!!
 - HOW
 
 ```java
-public String replaceSpace(String name){
+public String replaceSpace(String name) {
     String result = "";
     for (int i = 0; i < name.length(); i++){
         char word = name.charAt(i);
@@ -53,7 +53,7 @@ String result = replaceSpace("Hello World !!"); // HelloWorld!!
 
 
 ```java
-public String toLowerName(String name){
+public String toLowerName(String name) {
     return name.toLowerCase();
 }
 ```
@@ -61,7 +61,7 @@ public String toLowerName(String name){
 ## 불순함수
 순수함수의 두가지 조건 중 하나라도 위반시, 불순함수로 간주
 ```java
-public String isTest(String name){
+public String isTest(String name) {
     if (name.eqauls("test")){
         return "O"
     }
@@ -73,32 +73,32 @@ public String isTest(String name){
 setter를 사용하지 않는 것
 
 ```java
-public class Person{
+public class Person {
     private int age;
     private String name;
 
-    public Person(int age){
+    public Person(int age) {
         this.age = age;
     }
 
-    public Person(String name){
+    public Person(String name) {
         this.name = name;
     }
 
-    public Person(int age, String name){
+    public Person(int age, String name) {
         this.age = age;
         this.name = name;
     }
 
-    public Person setName(String name){
+    public Person setName(String name) {
         return new Person(name);
     }
 
-    public Person setAge(int age){
+    public Person setAge(int age) {
         return new Person(age);
     }
 
-    public Person setPerson(int age, String name){
+    public Person setPerson(int age, String name) {
         return new Person(age, name);
     }
 }
