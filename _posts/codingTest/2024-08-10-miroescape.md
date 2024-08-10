@@ -1,5 +1,5 @@
 ---
-title:  "이것이 코딩테스트다 - 7일차"
+title:  "이것이 코딩테스트다 - 9일차"
 layout: single
 categories:
   - codingtest
