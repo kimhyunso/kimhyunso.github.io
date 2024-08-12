@@ -11,6 +11,9 @@ tags:
 ## 공식문서
 https://docs.spring.io/spring-batch/reference/index.html
 
+## 스프링 배치
+다양한 상황에 대해 자유롭게 대처할 수 있다.
+
 ## 배치작업
 대량의 작업을 한 번에 `일괄처리` 할 수 있도록 도와주는 작업
 
@@ -74,6 +77,39 @@ public class DataSourceConfig {
 
 
 ## Tasklet-based Step
+```java
+@Configuration
+@RequiredArgsConstructor
+public class TaskletBaseJob {
+
+    private final JobRepository jobRepository;
+    private final PlatformTransactionManager transactionManager;
+
+
+    @Bean
+    public Job job() {
+        return new JobBuilder("job", jobRepository)
+                .start(step())
+                .build();
+    }
+
+    @Bean
+    public Step step() {
+        return new StepBuilder("step", jobRepository)
+                .tasklet(tasklet(), transactionManager)
+                .build();
+    }
+
+    @Bean
+    public Tasklet tasklet() {
+        return (contribution, chunkContext) -> {
+            return RepeatStatus.FINISHED;
+        };
+    }
+}
+```
+
+
 
 
 
