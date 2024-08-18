@@ -2,7 +2,7 @@
 title: "싱글톤 패턴 (Singleton Pattern)"
 layout: single
 categories:
-  - network
+  - designpattern
 tags:
   - Singleton
   - DesignPattern
