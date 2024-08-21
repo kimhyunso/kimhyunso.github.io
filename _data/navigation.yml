@@ -27,6 +27,9 @@ sidebar-category:
       - title: "데이터베이스"
         url: "categories/database"
         category: "database"
+      - title: "운영체제"
+        url: "categories/os"
+        category: "os"
   - title: "toyProject"
     children:
       - title: "toyProject"
