@@ -230,7 +230,7 @@ animal = dogFactory.tieBag(animal); // 책가방을 맨다.
 
 CatFactory catFactory = new CatFactory("로미냥", 3);
 animal = catFactory.createAnimal();
-animal = dogFactory.lostClaw(animal); // 발톱이 없어졌어요 ㅠㅠ
+animal = catFactory.lostClaw(animal); // 발톱이 없어졌어요 ㅠㅠ
 ```
 
 
