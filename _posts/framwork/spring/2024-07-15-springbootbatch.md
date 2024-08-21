@@ -32,6 +32,111 @@ https://docs.spring.io/spring-batch/reference/index.html
 {: .align-center}
 
 
+## `@Configuration`, `@Component` 차이점
+
+```java
+@SpringBootApplication
+@RequiredArgsConstructor
+@EnableBatchProcessing
+public class BatchApplication implements CommandLineRunner {
+
+	private final JobLauncher jobLauncher;
+	private final JobRegistry jobRegistry;
+
+	public static void main(String[] args) {
+		SpringApplication.run(LinkedinBatchApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		JobParameters jobParameters = new JobParametersBuilder()
+				.addString("item", "shoes")
+				.addString("type", "roses")
+				.toJobParameters();
+
+		Job job = jobRegistry.getJob("configTestJob");
+		jobLauncher.run(job, jobParameters);
+	}
+}
+```
+
+### `@Configuration`
+로그를 보면 Job보다 Step이 먼저 실행된다. `JobParamters`가 정상적으로 나온다.
+
+![Configuration로그](https://github.com/user-attachments/assets/70144908-81ef-40b8-8d52-57ac32eb728f)
+{: .align-center}
+
+```java
+@Configuration
+public class ConfigJob {
+    private final JobRepository jobRepository;
+    private final PlatformTransactionManager transactionManager;
+
+    @Bean
+    public Job componentJob() {
+        return new JobBuilder("componentJob", jobRepository)
+                .start(componentStep(jobRepository, transactionManager, null, null))
+                .build();
+    }
+
+    @Bean
+    @JobScope
+    public Step componentStep(@Value("#{jobParameters[item]}") String item,
+                               @Value("#{jobParameters[type]}") String type) {
+
+        return new StepBuilder("configTestStep", jobRepository)
+                .tasklet(componentTasklet(item, type), transactionManager)
+                .build();
+    }
+
+    public Tasklet componentTasklet(String item, String type) {
+        return (contribution, chunkContext) -> {
+            System.out.println("아이템 : " + item + "\t" + " 아이템의 유형 : " + type);
+            return RepeatStatus.FINISHED;
+        };
+    }
+}
+```
+
+### `@Component`
+로그를 보면 Job이 Step보다 먼저 실행된다. `JobParamters`가 `null`이 나온다.
+
+![Component로그](https://github.com/user-attachments/assets/ad5b866d-fc30-4576-ae77-d3b167ad8bdc)
+{: .align-center}
+
+```java
+@Component
+@RequiredArgsConstructor
+public class ConfigJob {
+    private final JobRepository jobRepository;
+    private final PlatformTransactionManager transactionManager;
+
+    @Bean
+    public Job componentJob() {
+        return new JobBuilder("componentJob", jobRepository)
+                .start(componentStep(jobRepository, transactionManager, null, null))
+                .build();
+    }
+
+    @Bean
+    @JobScope
+    public Step componentStep(@Value("#{jobParameters[item]}") String item,
+                               @Value("#{jobParameters[type]}") String type) {
+
+        return new StepBuilder("configTestStep", jobRepository)
+                .tasklet(componentTasklet(item, type), transactionManager)
+                .build();
+    }
+
+    public Tasklet componentTasklet(String item, String type) {
+        return (contribution, chunkContext) -> {
+            System.out.println("아이템 : " + item + "\t" + " 아이템의 유형 : " + type);
+            return RepeatStatus.FINISHED;
+        };
+    }
+}
+```
+
 ## 메타테이블 분리
 ```java
 @Configuration
@@ -74,8 +179,6 @@ public class DataSourceConfig {
 }
 ```
 
-
-
 ## Tasklet-based Step
 ```java
 @Configuration
@@ -84,7 +187,6 @@ public class TaskletBaseJob {
 
     private final JobRepository jobRepository;
     private final PlatformTransactionManager transactionManager;
-
 
     @Bean
     public Job job() {
@@ -103,11 +205,19 @@ public class TaskletBaseJob {
     @Bean
     public Tasklet tasklet() {
         return (contribution, chunkContext) -> {
+            // 진행작업
             return RepeatStatus.FINISHED;
         };
     }
 }
 ```
+
+
+## Chunk-base Step
+
+1. `reader`
+2. `processor`
+3. `writer`
 
 
 
