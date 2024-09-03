@@ -1,5 +1,5 @@
 ---
-title:  "스프링 부트 - Batch"
+title:  "스프링 부트 - Batch 첫번째"
 layout: single
 categories:
     - spring
@@ -32,50 +32,6 @@ https://docs.spring.io/spring-batch/reference/index.html
 {: .align-center}
 
 
-## 메타테이블 분리
-```java
-@Configuration
-public class DataSourceConfig {
-
-    @Primary
-    @Bean(name = "dataSource")
-    public DataSource applicationDataSource( @Value("${spring.datasource.driver-class-name}") String driverClassName,
-                                             @Value("${spring.datasource.url}") String url,
-                                             @Value("${spring.datasource.username}") String username,
-                                             @Value("${spring.datasource.password}") String password) {
-        return DataSourceBuilder.create()
-                .driverClassName(driverClassName)
-                .url(url)
-                .username(username)
-                .password(password)
-                .build();
-    }
-
-    @Bean(name = "subDataSource")
-    public DataSource batchDataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .addScript("/org/springframework/batch/core/schema-h2.sql")
-                .generateUniqueName(true)
-                .build();
-    }
-
-
-
-    @Bean
-    public JobRepository jobRepository(@Qualifier("subDataSource") DataSource dataSource, PlatformTransactionManager transactionManager) throws Exception {
-        JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
-        factory.setDataSource(dataSource);
-        factory.setTransactionManager(transactionManager);
-        factory.afterPropertiesSet();
-        return factory.getObject();
-    }
-
-}
-```
-
-
-
 ## Tasklet-based Step
 ```java
 @Configuration
@@ -84,7 +40,6 @@ public class TaskletBaseJob {
 
     private final JobRepository jobRepository;
     private final PlatformTransactionManager transactionManager;
-
 
     @Bean
     public Job job() {
@@ -103,11 +58,19 @@ public class TaskletBaseJob {
     @Bean
     public Tasklet tasklet() {
         return (contribution, chunkContext) -> {
+            // 진행작업
             return RepeatStatus.FINISHED;
         };
     }
 }
 ```
+
+
+## Chunk-base Step
+
+1. `reader`
+2. `processor`
+3. `writer`
 
 
 
