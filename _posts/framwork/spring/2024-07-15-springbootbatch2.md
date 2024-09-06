@@ -118,6 +118,7 @@ public class ConfigJob {
 ```
 
 ## 메타테이블 분리
+
 ```java
 @Configuration
 public class DataSourceConfig {
