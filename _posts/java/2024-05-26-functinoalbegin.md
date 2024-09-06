@@ -1,5 +1,5 @@
 ---
-title:  "JAVA 함수형 프로그래밍 - 일급함수, 일급컬렉션, 고차함수"
+title:  "JAVA 함수형 프로그래밍 - 일급함수, 고차함수"
 layout: single
 categories:
   - java
@@ -7,7 +7,7 @@ tags:
   - o'reilly
   - 함수형 프로그래밍
   - 일급함수
-  - 일급컬렉션
+  - 고차함수
 ---
 
 ## JShell 실행 방법
@@ -119,11 +119,6 @@ sayHello.andThen(greeting)
 greeting.compose(sayHello)
         .apply("Hello"); // Hello World!
 ```
-
-## 일급컬렉션
-****
-
-
 
 ## 고차 함수
 일급 함수의 특성을 바탕으로 **함수를 인수로 받거나**, **반환하거나 또는 두가지 모드 가능**하게 해야함
