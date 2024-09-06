@@ -45,10 +45,8 @@ sidebar-category:
       - title: "인텔리제이"
         url: "categories/intellij"
         category: "intellij"
-    children:
       - title: "나만의생각글"
         url: "categories/thinking"
         category: "thinking"
-
 
 
