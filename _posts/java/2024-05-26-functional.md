@@ -1,5 +1,5 @@
 ---
-title:  "함수형 자바"
+title:  "JAVA 함수형 프로그래밍 - SAM"
 layout: single
 categories:
   - java

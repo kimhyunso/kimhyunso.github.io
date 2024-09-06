@@ -85,6 +85,117 @@ a와 b를 더해서 n이라는 변수에 담고 있다. 누구도 저런 코드�
 
 우리는 응, 그래, 아니만 사용하기 위해서 코딩하는 것이 아닌 다른 사람들과 일상에서 대화를 하듯이 코딩하는 것이라고 생각이 된다.
 
+아래 예시를 보자
+
+```python
+from domain import Cat, Dog
+
+animal_type = 'cat'
+
+def createAnimal(animal_type):
+    if animal_type == 'cat':
+        return Cat()
+    elif animal_type == 'dog':
+        return Dog()
+
+createAnimal(animal_type)
+```
+
+위의 코드를 보고 무언가 잘못된 점을 찾지 못하였다면 좀더 공부를 하기를 바란다.
+
+세상에 동물이 강아지와 고양이 밖에 없을 수가 있을까?
+
+누군가 '저는 토끼를 좋아해서 토끼도 생성할 수 있도록 해주세요.' 라고 요청이 들어왔다면 어떻게 할까?
+
+다음 두가지 예시를 보고 어떻게 하는 것이 좀 더 유연한지 판단하기를 바란다.
+
+첫번째 예시는 `if`문 뒤에 계속 추가를 하는 것이다.
+
+```python
+from domain import Cat, Dog, Rabbit
+
+animal_type = 'rabbit'
+
+def createAnimal(animal_type):
+    if animal_type == 'cat':
+        return Cat()
+    elif animal_type == 'dog':
+        return Dog()
+    elif animal_type == 'rabbit':
+        return Rabbit()
+
+createAnimal(animal_type)
+```
+
+두번째 예시는 디자인 패턴 중 팩토리패턴 사용하여 타입에 따른 인스턴스들을 생성한다.
+
+```python
+from abc import abstractmethod
+
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+class Cat(Animal):
+    pass
+
+class Factory:
+    @abstractmethod
+    def create_animal(self):
+        pass
+
+class CatFactory(Factory):
+    def create_animal(self):
+        return Cat()
+
+class DogFactory(Factory):
+    def create_animal(self):
+        return Dog()
+    
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+class Cat(Animal):
+    pass
+
+class Factory:
+    @abstractmethod
+    def create_animal(self):
+        pass
+
+class CatFactory(Factory):
+    def create_animal(self):
+        return Cat()
+
+class DogFactory(Factory):
+    def create_animal(self):
+        return Dog()
+
+cat_factory = CatFactory()
+aniaml = cat_factory.create_animal()
+```
+
+토끼가 생성된다면 아래와 같이 rabbit클래스, rabbitFactory를 추가하면된다.
+
+```python
+# ...
+
+class Rabbit(Animal):
+    pass
+
+class Rabbit(Factory):
+    def create_animal(self):
+        return Rabbit()
+```
+
+불편해보이는가? 클래스가 너무 많이 생성되는 것 같은가? 필요성을 느끼지 못하겠는가? 그렇다면 10개의 동물을 정의하고 `if`문을 사용하여 인스턴스를 생성하고 완료가 되었다면 수정사항으로 2개의 동물이 더 추가되었다고 가정하고 작성해보길 바란다.
+
+
 ## 결론
 결국 혼자서 할 수 있는 것은 아무것도 없다.
 
