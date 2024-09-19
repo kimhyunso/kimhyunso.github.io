@@ -2,7 +2,7 @@
 title:  "나의 생각 말해보기 1일차"
 layout: single
 categories:
-  - sideproject
+  - thinking
 tags:
   - 생각정리
   - 회고
