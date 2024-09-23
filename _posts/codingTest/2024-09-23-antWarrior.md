@@ -65,6 +65,7 @@ for i in range(2, n):
     food_storage[i] += food_storage[i - 2]
 
 result = max(food_storage[n - 2], food_storage[n - 1])
+print(result)
 ```
 
 ## 다른 풀이
