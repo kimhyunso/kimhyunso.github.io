@@ -21,11 +21,10 @@ tags:
 
 사실상 대규모의 트래픽을 감당하고 있지 않기 때문에 (대략 20000~3000건의 데이터 처리) 카프카를 사용할 이유는 없다.
 
-> 환경 : docker
->
-> 사용 프레임워크 : Nodejs, Kafka, fastAPI
->
-> 데이터베이스 : postgresql/postgis
+- 환경 : docker, local(mac)
+- 사용 언어 : python, javascript
+- 사용 프레임워크 : Nodejs, Kafka
+- 데이터베이스 : postgresql/postgis
 
 ## docker 사용이유
 로컬에 다운받아 사용할 수 있지만 컨테이너로 묶어서 한 번에 관리를 편리하게 하기 위해서 사용했다.
