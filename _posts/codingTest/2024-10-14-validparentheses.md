@@ -45,6 +45,10 @@ Example 4:
 >
 > Output: true
 
+## 조건
+- 1 <= s.length <= 104
+- s consists of parentheses only '()[]{}'.
+
 ## 문제 풀이
 1. 여는 괄호와 닫는 괄호의 짝이되는 dictionary형태의 자료구조를 정의한다.
 - (주의사항으로 아래와 같이 정의되어야만 한다. 이유는 여는 괄호가 무조건 우선이기 때문)
