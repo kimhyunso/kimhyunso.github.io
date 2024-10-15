@@ -8,6 +8,18 @@ tags:
     - CRUD
 ---
 
+## 환경
+- mac, window
+- SpringBoot 3.0.2
+- gradle
+- git
+- SpringBootTest
+- jdk 17
+
+## 저장소
+- 공식문서 : https://docs.spring.io/spring-boot/docs/1.5.2.RELEASE/reference/html/boot-features-testing.html
+- 내가만든 프로젝트 : https://github.com/kimhyunso/Spring/tree/main/SpringBootWithJWT/src/test/java/com/project/hyunso/controller
+
 ## 구조
 ```
 |-main
@@ -118,10 +130,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {}
 ```
 
 ## 테스트하기
-Mock 테스트 
-- 공식문서 : https://docs.spring.io/spring-boot/docs/1.5.2.RELEASE/reference/html/boot-features-testing.html
-- 내가만든 프로젝트 : https://github.com/kimhyunso/Spring/tree/main/SpringBootWithJWT/src/test/java/com/project/hyunso/controller
-
+Mock 테스트 - Article들을 조회
 
 ```java
 @SpringBootTest
