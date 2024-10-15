@@ -118,7 +118,7 @@ public class ConfigJob {
 ```
 
 ## 메타테이블 분리
-- `@Primary`: 주된 bin
+- `@Primary`: 주된 bin으로 설정하는 것
 - `@Qualifier(binName)`: binName으로 설정된 bin을 주입 
 
 ```java
