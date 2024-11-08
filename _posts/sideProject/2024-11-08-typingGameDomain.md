@@ -4,11 +4,11 @@ layout: single
 categories:
   - sideproject
 tags:
-	- java
-	- game
-	- thread
-	- udp
-	- tcp
+  - java
+  - game
+  - thread
+  - udp
+  - tcp
 ---
 
 
