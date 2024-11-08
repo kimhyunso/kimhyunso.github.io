@@ -1,5 +1,5 @@
 ---
-title: "typingGame 만들기 - 설계하기"
+title:  "typingGame 만들기 (설계)"
 layout: single
 categories:
   - sideproject
@@ -10,7 +10,6 @@ tags:
 	- udp
 	- tcp
 ---
-
 
 ## 프로젝트 목적
 1. `thread`, `udp`, `tcp`를 활용해서 game을 만들고 이해하기

@@ -1,5 +1,5 @@
 ---
-title: "typingGame 만들기 - 도메인 구상"
+title:  "typingGame 만들기 (도메인 구상)"
 layout: single
 categories:
   - sideproject
