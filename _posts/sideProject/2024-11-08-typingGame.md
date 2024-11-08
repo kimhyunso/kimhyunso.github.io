@@ -1,5 +1,5 @@
 ---
-title:  "typingGame 만들어보기"
+title:  "typingGame 만들기 - 1"
 layout: single
 categories:
   - sideproject
