@@ -46,7 +46,7 @@ public class Customer {
 
 ## 요구사항
 
-1. 고객의 나이가 30대 이상인 사람들을 찾고 싶다.
+- 고객의 나이가 30대 이상인 사람들을 찾고 싶다.
 
 ```java
 public class SearchCustomer {
@@ -93,7 +93,7 @@ public class Main {
 }
 ```
 
-2. 이름에 성씨가 이씨인 사람들을 찾고 싶다.
+- 이름에 성씨가 이씨인 사람들을 찾고 싶다.
 
 ```java
 public class SearchCustomer {
@@ -150,7 +150,7 @@ public class Main {
 }
 ```
 
-3. 여성 회원인 경우만 확인하고 싶다.
+- 여성 회원인 경우만 확인하고 싶다.
 
 ```java
 public class SearchCustomer {
