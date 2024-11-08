@@ -31,8 +31,6 @@ public class Customer {
         this.gender = gender;
     }
 
-    // getter ...
-
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -41,6 +39,8 @@ public class Customer {
         builder.append("성별 : " + gender.name());
         return builder.toString();
     }
+
+    // getter, equals ...
 }
 ```
 
@@ -66,7 +66,6 @@ public class SearchCustomer {
         return result;
     }
 }
-
 
 public class Main {
     public static void main(String[] args) {
@@ -160,7 +159,6 @@ public class SearchCustomer {
         this.customers = customers;
     }
     
-
     public List<Customer> searchByAge(int age) {
         List<Customer> result = new ArrayList<>();
         for (Customer customer : customers) {
