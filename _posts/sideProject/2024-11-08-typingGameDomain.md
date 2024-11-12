@@ -109,6 +109,7 @@ public class Label {
 	private String label;
 }
 
+
 public class Zombie extends Unit implements SoldierAttackable {
 	private Label label;
 
