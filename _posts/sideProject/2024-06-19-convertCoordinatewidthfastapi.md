@@ -7,6 +7,7 @@ tags:
   - faseAPI
   - python
 ---
+
 ## 프로젝트 시작 계기
 기존 API를 호출하여 주소변환 작업을 진행하고 있던 중 API를 수도 없이 호출하기 때문에 `connection faild`오류가 발생하게 되었다. 
 
