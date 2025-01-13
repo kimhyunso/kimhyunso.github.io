@@ -139,3 +139,23 @@ jobs:
 ```
 
 
+## 결과확인
+
+### gitAction
+![gitActionSuccess](https://github.com/user-attachments/assets/c0ef2fe4-e0e0-4842-888b-c970181cd52a)
+
+
+### CodeDeploy
+![CodeDeploySucess](https://github.com/user-attachments/assets/6d166e71-0332-4ee6-81f7-f0a6a8798277)
+
+### CodeDeploy Log확인
+
+```shell
+# script 실행 echo 로그
+$ cd /opt/codedeploy-agent/deployment-root/deployment-logs
+$ vi codedeploy-agent-deployments.log
+
+# CodeDeploy 실행 로그
+$ cd /var/log/aws/codedeploy-agent
+$ vi codedeploy-agent.log
+```
