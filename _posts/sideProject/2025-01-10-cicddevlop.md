@@ -195,12 +195,6 @@ nohup java -jar -Duser.timezone=Asia/Seoul $JAR_PATH 1>/dev/null 2>&1 &
 ```shell
 #!/bin/bash
 
-ROOT_DIRECTORY=/home/ubuntu/build
-
-APP_NAME=consumer-*.*.*-SNAPSHOT
-JAR_NAME=$(ls $ROOT_DIRECTORY/build/libs/ | grep '.jar' | tail -n 1)
-JAR_PATH=$ROOT_DIRECTORY/build/libs/$JAR_NAME
-
 CURRENT_PID=$(pgrep consumer)
 
 if [ -z $CURRENT_PID ]; then
