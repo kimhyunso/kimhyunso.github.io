@@ -138,6 +138,78 @@ jobs:
           --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
 ```
 
+### 6. appspec.yml, start.sh, stop.sh 작성
+### appspec.yml
+```yml
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/build
+    overwrite: yes
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  AfterInstall:
+    - location: script/stop.sh
+      timeout: 60
+      runas: root
+  ApplicationStart:
+    - location: script/start.sh
+      timeout: 60
+      runas: root
+```
+
+### start.sh
+```shell
+#!/bin/bash
+
+ROOT_DIRECTORY=/home/ubuntu/build
+
+APP_NAME=consumer-*.*.*-SNAPSHOT
+JAR_NAME=$(ls $ROOT_DIRECTORY/build/libs/ | grep '.jar' | tail -n 1)
+JAR_PATH=$ROOT_DIRECTORY/build/libs/$JAR_NAME
+
+CURRENT_PID=$(pgrep consumer)
+
+if [ -z "$CURRENT_PID" ]; then
+    echo "NOT RUNNING"
+else
+    echo "> kill -9 $CURRENT_PID"
+    kill -15 $CURRENT_PID
+    sleep 5
+fi
+
+echo "> $JAR_PATH 에 실행권한 추가"
+chmod +x $JAR_PATH
+
+echo "> $JAR_PATH 배포"
+nohup java -jar -Duser.timezone=Asia/Seoul $JAR_PATH 1>/dev/null 2>&1 &
+```
+
+### stop.sh
+```shell
+#!/bin/bash
+
+ROOT_DIRECTORY=/home/ubuntu/build
+
+APP_NAME=consumer-*.*.*-SNAPSHOT
+JAR_NAME=$(ls $ROOT_DIRECTORY/build/libs/ | grep '.jar' | tail -n 1)
+JAR_PATH=$ROOT_DIRECTORY/build/libs/$JAR_NAME
+
+CURRENT_PID=$(pgrep consumer)
+
+if [ -z $CURRENT_PID ]; then
+        echo "no started"
+else
+        kill -9 $CURRENT_PID
+fi
+```
+
 
 ## 결과확인
 
