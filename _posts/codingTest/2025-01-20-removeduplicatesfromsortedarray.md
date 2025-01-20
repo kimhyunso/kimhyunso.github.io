@@ -38,6 +38,10 @@ array의 중복 요소를 지우고, array의 사이즈를 출력하라.
 
 ## 문제풀이
 ### set 이용
+1. set 초기화를 진행한다. `LinkedHashSet`을 사용한 이유는 순서가 보장되기 때문
+2. set에 있는 데이터를 `nums`에 덮어쓴다.
+3. set의 크기를 리턴한다.
+
 ```java
 import java.util.Set;
 import java.util.Iterator;
@@ -63,6 +67,13 @@ class Solution {
 ```
 
 ### 반복문
+- 중요 키워드: n번째 요소와 n - 1를 비교하는 것
+
+1. `index` 같은 변수를 선언한다.
+2. 1부터 nums의 길이 만큼 반복할 때까지 반복문을 돈다.
+3. 만약, nums의 n번째 요소와 n - 1번째 요소가 다르다면 `nums[index]`에 n번째 요소를 덮어쓴 후, `index` 변수를 증감한다.
+4. `index` 변수를 리턴한다.
+
 ```java
 class Solution {
     public int removeDuplicates(int[] nums) {
