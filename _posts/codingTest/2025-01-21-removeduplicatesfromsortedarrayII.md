@@ -47,7 +47,7 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description
 
 다음 그림과 같다.
 
-![problemPicture](https://github.com/user-attachments/assets/419dcff7-54fa-4ac1-940d-bdf5ff8974db)
+![problemPicture](https://github.com/user-attachments/assets/348daa7e-9490-4ce4-a5f9-f160b3cd9fba)
 {: .align-center}
 
 
@@ -80,8 +80,6 @@ class Solution {
 
 ## 다른사람 풀이
 
-
-// 0,0,1,1,1,1,2,3,3
 
 ```java
 class Solution {
