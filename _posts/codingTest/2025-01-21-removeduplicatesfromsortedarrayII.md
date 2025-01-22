@@ -33,8 +33,8 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description
 ```
 
 ## 조건
-- 1 <= nums.length <= 3 * 104
-- -104 <= nums[i] <= 104
+- 1 <= nums.length <= $3 * 10^4$
+- $-10^4$ <= nums[i] <= $10^4$
 - nums내림차순이 아닌 순서 로 정렬됩니다 .
 
 
@@ -47,7 +47,7 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description
 
 다음 그림과 같다.
 
-![problemPicture](https://github.com/user-attachments/assets/348daa7e-9490-4ce4-a5f9-f160b3cd9fba)
+![ForExample](https://github.com/user-attachments/assets/348daa7e-9490-4ce4-a5f9-f160b3cd9fba)
 {: .align-center}
 
 

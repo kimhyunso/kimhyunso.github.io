@@ -33,8 +33,8 @@ https://leetcode.com/problems/majority-element/description/
 
 ## 조건
 - n == nums.length
-- 1 <= n <= 5 * 104
-- -109 <= nums[i] <= 109
+- 1 <= n <= $5 * 10^4$
+- $-10^9$ <= nums[i] <= $10^9$
 
 
 ## 문제풀이
