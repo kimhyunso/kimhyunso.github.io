@@ -47,9 +47,8 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description
 
 다음 그림과 같다.
 
-![ForExample](https://github.com/user-attachments/assets/348daa7e-9490-4ce4-a5f9-f160b3cd9fba)
+![ForExample](https://github.com/user-attachments/assets/c763955a-2c99-4960-9534-3e531d3f2662)
 {: .align-center}
-
 
 
 ```java
