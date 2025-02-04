@@ -11,6 +11,8 @@ tags:
 string
 
 ## 문제
+- https://leetcode.com/problems/length-of-last-word
+
 ![problem](https://github.com/user-attachments/assets/50e6de2b-a245-4b74-bbe6-b96ec604a251)
 {: .align-center}
 

@@ -11,6 +11,9 @@ tags:
 map
 
 ## 문제
+- https://leetcode.com/problems/ransom-note
+
+
 ![problem](https://github.com/user-attachments/assets/c286ed18-3c31-441d-91ef-1c57ab5bed12)
 {: .align-center}
 

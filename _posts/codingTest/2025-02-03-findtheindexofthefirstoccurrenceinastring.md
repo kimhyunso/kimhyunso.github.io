@@ -11,6 +11,8 @@ tags:
 string
 
 ## 문제
+- https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
+
 ![problem](https://github.com/user-attachments/assets/87d70a5a-0eaf-4e83-a146-93abf4a60b84)
 {: .align-center}
 
