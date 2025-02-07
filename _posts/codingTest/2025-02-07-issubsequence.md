@@ -11,7 +11,7 @@ tags:
 문자열
 
 ## 문제
-- https://leetcode.com/problems/gas-station/description/
+- https://leetcode.com/problems/is-subsequence/
 
 ![problem](https://github.com/user-attachments/assets/2f118fe0-ed2b-4498-bc24-7b35e5e636af)
 {: .align-center}
