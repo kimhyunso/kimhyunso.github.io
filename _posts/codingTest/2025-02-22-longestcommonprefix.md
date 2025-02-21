@@ -8,7 +8,7 @@ tags:
 ---
 
 ## 주제
-투포인터
+문자열
 
 ## 문제
 - https://leetcode.com/problems/longest-common-prefix/description/
