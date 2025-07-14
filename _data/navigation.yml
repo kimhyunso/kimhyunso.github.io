@@ -50,7 +50,7 @@ sidebar-category:
         category: "thinking"
       - title: "에세이"
         url: "categories/essayCategory"
-        category: "essay"
+        category: "essayCategory"
       - title: "TIL"
         url: "categories/til"
         category: "til"
