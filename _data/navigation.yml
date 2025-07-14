@@ -49,7 +49,7 @@ sidebar-category:
         url: "categories/thinking"
         category: "thinking"
       - title: "에세이"
-        url: "categories/essay"
+        url: "categories/essayCategory"
         category: "essay"
       - title: "TIL"
         url: "categories/til"
