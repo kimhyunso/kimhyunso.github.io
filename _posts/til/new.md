@@ -66,11 +66,7 @@ max{
     L(i-1, j-1) + 1
 }
 
-
-
 # Greddy (탐욕법)
 
 
 # Backtraking
-
-
